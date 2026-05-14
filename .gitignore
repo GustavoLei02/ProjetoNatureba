@@ -9,4 +9,4 @@ node_modules/
 server_err.txt
 server_out.txt
 .vercel/
-Imagens/
+/Imagens/
