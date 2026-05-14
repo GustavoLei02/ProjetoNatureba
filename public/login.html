@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — AmericanFit Admin</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="dark-admin">
+
+<div class="pagina-login">
+  <div class="caixa-login">
+    <div class="logo-login">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 10px;display:block;">
+        <circle cx="18" cy="18" r="18" fill="rgba(63,182,139,.15)"/>
+        <path d="M18 8c0 0-8 4-8 10a8 8 0 0016 0c0-6-8-10-8-10z" fill="#3FB68B"/>
+        <path d="M18 12c0 0-4.5 2.5-4.5 6a4.5 4.5 0 009 0c0-3.5-4.5-6-4.5-6z" fill="#2EA07A"/>
+      </svg>
+      <h2>AmericanFit</h2>
+      <p>Painel Administrativo</p>
+    </div>
+
+    <div class="erro-login" id="erro-login"></div>
+
+    <form id="form-login" onsubmit="fazerLogin(event)">
+      <div class="campo" style="margin-bottom:16px;">
+        <label for="usuario">Usuário</label>
+        <input
+          type="text"
+          id="usuario"
+          name="usuario"
+          placeholder="Digite seu usuário"
+          autocomplete="username"
+          required
+        />
+      </div>
+
+      <div class="campo" style="margin-bottom:24px;">
+        <label for="senha">Senha</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Digite sua senha"
+          autocomplete="current-password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-verde btn-grande" id="btn-entrar">
+        ENTRAR
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  async function fazerLogin(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-entrar');
+    const erroEl = document.getElementById('erro-login');
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+
+    btn.disabled = true;
+    btn.textContent = 'Verificando...';
+    erroEl.style.display = 'none';
+
+    try {
+      const resp = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ usuario, senha })
+      });
+      const dados = await resp.json();
+
+      if (dados.sucesso) {
+        window.location.href = '/admin.html';
+      } else {
+        erroEl.textContent = dados.erro || 'Usuário ou senha incorretos.';
+        erroEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'ENTRAR';
+      }
+    } catch (err) {
+      erroEl.textContent = 'Erro de conexão. Verifique o servidor.';
+      erroEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'ENTRAR';
+    }
+  }
+</script>
+
+</body>
+</html>

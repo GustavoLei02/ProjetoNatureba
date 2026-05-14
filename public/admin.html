@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — AmericanFit</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="dark-admin">
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container"></div>
+
+<div class="admin-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px;">
+        <circle cx="14" cy="14" r="14" fill="rgba(63,182,139,.2)"/>
+        <path d="M14 5c0 0-7 3.5-7 9a7 7 0 0014 0c0-5.5-7-9-7-9z" fill="#3FB68B"/>
+        <path d="M14 9c0 0-3.5 2-3.5 5a3.5 3.5 0 007 0c0-3-3.5-5-3.5-5z" fill="#2EA07A"/>
+      </svg>
+      <h2>AmericanFit</h2>
+      <p>Painel de Controle</p>
+    </div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#" class="ativo" onclick="mudarAba('dashboard', this)" data-aba="dashboard">
+          <span class="nav-icone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </span>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="mudarAba('pedidos', this)" data-aba="pedidos">
+          <span class="nav-icone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="m7.5 4.27 9 5.15"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/><circle cx="18.5" cy="15.5" r="2.5"/><path d="M20.27 17.27 22 19"/></svg>
+          </span>
+          Pedidos
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="mudarAba('cidades', this)" data-aba="cidades">
+          <span class="nav-icone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          Cidades
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="mudarAba('configuracoes', this)" data-aba="configuracoes">
+          <span class="nav-icone">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
+          Configurações
+        </a>
+      </li>
+    </ul>
+    <div style="padding:16px 20px;border-top:1px solid #30363D;">
+      <button class="btn btn-verde" style="width:100%;padding:10px;font-size:.85rem;display:flex;align-items:center;justify-content:center;gap:8px;" onclick="fazerLogout()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sair
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main class="admin-conteudo">
+
+    <!-- Cabeçalho -->
+    <header class="admin-header">
+      <h1 id="titulo-pagina">Dashboard</h1>
+      <span id="nome-admin" style="font-size:.88rem;"></span>
+    </header>
+
+    <!-- ===== ABA DASHBOARD ===== -->
+    <div class="admin-pagina ativa" id="aba-dashboard">
+
+      <!-- Métricas -->
+      <div class="grade-metricas" id="metricas">
+        <div class="card-metrica">
+          <div class="metrica-icone azul">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#58A6FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div>
+            <div class="metrica-valor" id="m-total">—</div>
+            <div class="metrica-label">Total de Pedidos</div>
+          </div>
+        </div>
+        <div class="card-metrica">
+          <div class="metrica-icone amarelo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3B341" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="metrica-valor" id="m-pendentes">—</div>
+            <div class="metrica-label">Pedidos Pendentes</div>
+          </div>
+        </div>
+        <div class="card-metrica">
+          <div class="metrica-icone verde">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="metrica-valor" id="m-confirmados">—</div>
+            <div class="metrica-label">Confirmados</div>
+          </div>
+        </div>
+        <div class="card-metrica">
+          <div class="metrica-icone roxo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A371F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <div class="metrica-valor" id="m-valor">—</div>
+            <div class="metrica-label">Valor Total Estimado</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráfico de vendas -->
+      <div class="chart-container">
+        <h3>Pedidos — últimos 7 dias</h3>
+        <canvas id="grafico-vendas" height="200" style="width:100%;display:block;"></canvas>
+      </div>
+
+      <!-- Tabela últimos pedidos -->
+      <div class="caixa-tabela">
+        <div class="caixa-tabela-header">
+          <h3>Últimos 10 Pedidos</h3>
+          <button class="btn btn-verde" style="padding:8px 16px;font-size:.85rem;display:flex;align-items:center;gap:6px;" onclick="carregarDashboard()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-6.5"/></svg>
+            Atualizar
+          </button>
+        </div>
+        <div class="tabela-responsiva">
+          <table id="tabela-dashboard">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Kit</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-dashboard">
+              <tr><td colspan="8" style="text-align:center;padding:30px;color:#8B949E;">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ABA PEDIDOS ===== -->
+    <div class="admin-pagina" id="aba-pedidos">
+
+      <div class="filtros-admin">
+        <div class="campo">
+          <label>Buscar</label>
+          <input type="text" id="filtro-busca" placeholder="Nome ou telefone..." oninput="filtrarPedidosLocal()" style="min-width:200px;" />
+        </div>
+        <div class="campo">
+          <label>Status</label>
+          <select id="filtro-status" onchange="carregarPedidos()">
+            <option value="">Todos</option>
+            <option value="pendente">Pendente</option>
+            <option value="confirmado">Confirmado</option>
+            <option value="entregue">Entregue</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label>Data início</label>
+          <input type="date" id="filtro-inicio" onchange="carregarPedidos()" />
+        </div>
+        <div class="campo">
+          <label>Data fim</label>
+          <input type="date" id="filtro-fim" onchange="carregarPedidos()" />
+        </div>
+        <button class="btn btn-verde" style="padding:8px 14px;font-size:.85rem;align-self:flex-end;" onclick="limparFiltros()">
+          Limpar
+        </button>
+        <button class="btn" style="padding:8px 14px;font-size:.85rem;align-self:flex-end;background:#21262D;color:#C9D1D9;border:1px solid #30363D;display:flex;align-items:center;gap:6px;" onclick="exportarCSV()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Exportar CSV
+        </button>
+      </div>
+
+      <div class="caixa-tabela">
+        <div class="caixa-tabela-header">
+          <h3>Todos os Pedidos</h3>
+          <span id="contagem-pedidos" style="font-size:.85rem;color:#8B949E;"></span>
+        </div>
+        <div class="tabela-responsiva">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Cidade/UF</th>
+                <th>Kit</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-pedidos">
+              <tr><td colspan="9" style="text-align:center;padding:30px;color:#8B949E;">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ABA CIDADES ===== -->
+    <div class="admin-pagina" id="aba-cidades">
+      <div class="caixa-tabela">
+        <div class="caixa-tabela-header">
+          <h3>Gerenciar Cidades e COD</h3>
+          <button class="btn btn-verde" style="padding:8px 16px;font-size:.85rem;display:flex;align-items:center;gap:6px;" onclick="carregarCidades()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-6.5"/></svg>
+            Atualizar
+          </button>
+        </div>
+        <div class="tabela-responsiva">
+          <table>
+            <thead>
+              <tr>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>CEP Início</th>
+                <th>CEP Fim</th>
+                <th>COD Disponível</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-cidades">
+              <tr><td colspan="5" style="text-align:center;padding:30px;color:#8B949E;">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ABA CONFIGURAÇÕES ===== -->
+    <div class="admin-pagina" id="aba-configuracoes">
+      <div class="grade-config">
+        <div class="card-config">
+          <h4>Versão do Sistema</h4>
+          <p>v2.0.0</p>
+        </div>
+        <div class="card-config">
+          <h4>Total de Pedidos</h4>
+          <p id="cfg-total-pedidos">—</p>
+        </div>
+        <div class="card-config">
+          <h4>Cidades com COD</h4>
+          <p id="cfg-cidades-ativas">—</p>
+        </div>
+        <div class="card-config">
+          <h4>Ambiente</h4>
+          <p style="color:#8B949E;font-size:1rem;">Development</p>
+        </div>
+      </div>
+
+      <div class="caixa-tabela" style="margin-top:24px;">
+        <div class="caixa-tabela-header">
+          <h3>Informações do Sistema</h3>
+        </div>
+        <div style="padding:24px;">
+          <p style="font-size:.9rem;color:#8B949E;line-height:2;">
+            <strong style="color:#C9D1D9;">Produto:</strong> AmericanFit — 30 cápsulas 500mg<br />
+            <strong style="color:#C9D1D9;">WhatsApp:</strong> (46) 99971-8672<br />
+            <strong style="color:#C9D1D9;">Banco de dados:</strong> libSQL / Turso<br />
+            <strong style="color:#C9D1D9;">Porta padrão:</strong> 3000
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ===== MODAL DETALHES DO PEDIDO ===== -->
+<div class="overlay-modal" id="modal-pedido">
+  <div class="caixa-modal">
+    <div class="modal-header">
+      <h3 id="modal-titulo">Detalhes do Pedido</h3>
+      <button class="btn-fechar-modal" onclick="fecharModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="modal-corpo"></div>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+      <select id="modal-select-status" class="select-status modal-select-btn" style="flex:1;padding:10px;font-size:.9rem;">
+        <option value="pendente">Pendente</option>
+        <option value="confirmado">Confirmado</option>
+        <option value="entregue">Entregue</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+      <button class="btn btn-verde" style="padding:10px 20px;" onclick="salvarStatusModal()">
+        Salvar Status
+      </button>
+      <button class="btn" style="padding:10px 20px;background:#21262D;color:#C9D1D9;border:1px solid #30363D;" onclick="fecharModal()">
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let pedidoModalAtual = null;
+  let pedidosCarregados = [];
+
+  // ============================
+  // ESCAPE HTML (XSS protection)
+  // ============================
+  function e(str) {
+    if (str == null) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // ============================
+  // TOAST
+  // ============================
+  function mostrarToast(msg, tipo = 'info') {
+    const container = document.getElementById('toast-container');
+    const el = document.createElement('div');
+    el.className = `toast toast-${tipo}`;
+    el.textContent = msg;
+    container.appendChild(el);
+    setTimeout(() => {
+      el.classList.add('saindo');
+      setTimeout(() => el.remove(), 350);
+    }, 3200);
+  }
+
+  // ============================
+  // NAVEGAÇÃO POR ABAS
+  // ============================
+  function mudarAba(aba, linkEl) {
+    event.preventDefault();
+    document.querySelectorAll('.admin-pagina').forEach(p => p.classList.remove('ativa'));
+    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('ativo'));
+
+    document.getElementById('aba-' + aba).classList.add('ativa');
+    linkEl.classList.add('ativo');
+
+    const titulos = { dashboard: 'Dashboard', pedidos: 'Pedidos', cidades: 'Cidades', configuracoes: 'Configurações' };
+    document.getElementById('titulo-pagina').textContent = titulos[aba] || aba;
+
+    if (aba === 'dashboard')     carregarDashboard();
+    if (aba === 'pedidos')       carregarPedidos();
+    if (aba === 'cidades')       carregarCidades();
+    if (aba === 'configuracoes') carregarConfiguracoes();
+  }
+
+  // ============================
+  // UTILITÁRIOS
+  // ============================
+  const KITS_LABEL = { '1mes': 'Kit 1 mês', '3meses': 'Kit 3 meses', '5meses': 'Kit 5 meses' };
+
+  function badgeStatus(status) {
+    return `<span class="badge badge-${status}">${status}</span>`;
+  }
+
+  function formatarData(dt) {
+    if (!dt) return '—';
+    return new Date(dt).toLocaleString('pt-BR');
+  }
+
+  function formatarValor(v) {
+    return 'R$ ' + Number(v).toFixed(2).replace('.', ',');
+  }
+
+  function formatarCep(cep) {
+    const c = String(cep).replace(/\D/g, '');
+    return c.slice(0, 5) + '-' + c.slice(5);
+  }
+
+  // ============================
+  // GRÁFICO CANVAS
+  // ============================
+  function renderGrafico(dados) {
+    const canvas = document.getElementById('grafico-vendas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    // Montar os 7 dias com fallback 0
+    const hoje = new Date();
+    const dias = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(hoje);
+      d.setDate(d.getDate() - i);
+      const iso = d.toISOString().slice(0, 10);
+      const label = d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
+      const found = dados.find(r => r.data === iso);
+      dias.push({ label, total: found ? found.total : 0 });
+    }
+
+    const maxVal = Math.max(...dias.map(d => d.total), 1);
+    const W = canvas.offsetWidth || 700;
+    const H = 200;
+    canvas.width  = W;
+    canvas.height = H;
+
+    const padL = 40, padR = 20, padT = 20, padB = 36;
+    const chartW = W - padL - padR;
+    const chartH = H - padT - padB;
+    const barW   = (chartW / dias.length) * 0.55;
+    const gap    = chartW / dias.length;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Grid lines
+    const steps = 4;
+    ctx.strokeStyle = '#30363D';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= steps; i++) {
+      const y = padT + (chartH / steps) * i;
+      ctx.beginPath();
+      ctx.moveTo(padL, y);
+      ctx.lineTo(padL + chartW, y);
+      ctx.stroke();
+      const val = Math.round(maxVal - (maxVal / steps) * i);
+      ctx.fillStyle = '#8B949E';
+      ctx.font = '11px system-ui, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(val, padL - 6, y + 4);
+    }
+
+    // Barras
+    dias.forEach((d, i) => {
+      const x   = padL + i * gap + (gap - barW) / 2;
+      const barH = d.total === 0 ? 0 : Math.max(4, (d.total / maxVal) * chartH);
+      const y   = padT + chartH - barH;
+
+      // Gradiente verde
+      const grad = ctx.createLinearGradient(x, y, x, padT + chartH);
+      grad.addColorStop(0, '#3FB68B');
+      grad.addColorStop(1, 'rgba(63,182,139,.3)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      const r = 4;
+      if (barH > r * 2 && ctx.roundRect) {
+        ctx.roundRect(x, y, barW, barH, [r, r, 0, 0]);
+      } else {
+        ctx.rect(x, y, barW, barH);
+      }
+      ctx.fill();
+
+      // Valor no topo
+      if (d.total > 0) {
+        ctx.fillStyle = '#E6EDF3';
+        ctx.font = 'bold 12px system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(d.total, x + barW / 2, y - 5);
+      }
+
+      // Label data
+      ctx.fillStyle = '#8B949E';
+      ctx.font = '11px system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(d.label, x + barW / 2, H - 8);
+    });
+  }
+
+  // ============================
+  // DASHBOARD
+  // ============================
+  async function carregarDashboard() {
+    try {
+      const [rPedidos, rStats] = await Promise.all([
+        fetch('/api/pedidos'),
+        fetch('/api/admin/stats')
+      ]);
+      if (!rPedidos.ok) { redirecionarLogin(); return; }
+
+      const pedidos = await rPedidos.json();
+      const stats   = rStats.ok ? await rStats.json() : [];
+
+      const total      = pedidos.length;
+      const pendentes  = pedidos.filter(p => p.status === 'pendente').length;
+      const confirmados = pedidos.filter(p => p.status === 'confirmado').length;
+      const valorTotal = pedidos.filter(p => p.status !== 'cancelado').reduce((s, p) => s + p.valor, 0);
+
+      document.getElementById('m-total').textContent      = total;
+      document.getElementById('m-pendentes').textContent  = pendentes;
+      document.getElementById('m-confirmados').textContent = confirmados;
+      document.getElementById('m-valor').textContent      = formatarValor(valorTotal);
+
+      renderGrafico(stats);
+
+      const ultimos = pedidos.slice(0, 10);
+      const tbody   = document.getElementById('tbody-dashboard');
+
+      if (!ultimos.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:30px;color:#8B949E;">Nenhum pedido ainda.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = ultimos.map(p => `
+        <tr>
+          <td>#${p.id}</td>
+          <td>${e(p.nome)}</td>
+          <td>${e(p.cidade)}/${e(p.estado)}</td>
+          <td>${e(KITS_LABEL[p.kit] || p.kit)}</td>
+          <td>${formatarValor(p.valor)}</td>
+          <td>${badgeStatus(p.status)}</td>
+          <td>${formatarData(p.criado_em)}</td>
+          <td>
+            <select class="select-status" onchange="atualizarStatus(${p.id}, this.value, this)">
+              <option value="pendente"   ${p.status==='pendente'  ?'selected':''}>Pendente</option>
+              <option value="confirmado" ${p.status==='confirmado'?'selected':''}>Confirmado</option>
+              <option value="entregue"   ${p.status==='entregue'  ?'selected':''}>Entregue</option>
+              <option value="cancelado"  ${p.status==='cancelado' ?'selected':''}>Cancelado</option>
+            </select>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('cfg-total-pedidos').textContent = total;
+    } catch (err) {
+      console.error('Erro ao carregar dashboard:', err);
+    }
+  }
+
+  // ============================
+  // PEDIDOS
+  // ============================
+  async function carregarPedidos() {
+    const status = document.getElementById('filtro-status').value;
+    const inicio = document.getElementById('filtro-inicio').value;
+    const fim    = document.getElementById('filtro-fim').value;
+
+    let url = '/api/pedidos?';
+    if (status) url += `status=${status}&`;
+    if (inicio) url += `data_inicio=${inicio}&`;
+    if (fim)    url += `data_fim=${fim}&`;
+
+    try {
+      const resp = await fetch(url);
+      if (!resp.ok) { redirecionarLogin(); return; }
+      pedidosCarregados = await resp.json();
+      document.getElementById('filtro-busca').value = '';
+      renderTabelaPedidos(pedidosCarregados);
+    } catch (err) {
+      console.error('Erro ao carregar pedidos:', err);
+    }
+  }
+
+  function filtrarPedidosLocal() {
+    const q = document.getElementById('filtro-busca').value.toLowerCase().trim();
+    if (!q) { renderTabelaPedidos(pedidosCarregados); return; }
+    const filtrados = pedidosCarregados.filter(p =>
+      p.nome.toLowerCase().includes(q) ||
+      p.telefone.replace(/\D/g, '').includes(q.replace(/\D/g, ''))
+    );
+    renderTabelaPedidos(filtrados);
+  }
+
+  function renderTabelaPedidos(pedidos) {
+    document.getElementById('contagem-pedidos').textContent = `${pedidos.length} pedido(s)`;
+    const tbody = document.getElementById('tbody-pedidos');
+
+    if (!pedidos.length) {
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:30px;color:#8B949E;">Nenhum pedido encontrado.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = pedidos.map(p => `
+      <tr style="cursor:pointer;" onclick="abrirModal(${p.id})">
+        <td>#${p.id}</td>
+        <td>${e(p.nome)}</td>
+        <td>${e(p.telefone)}</td>
+        <td>${e(p.cidade)}/${e(p.estado)}</td>
+        <td>${e(KITS_LABEL[p.kit] || p.kit)}</td>
+        <td>${formatarValor(p.valor)}</td>
+        <td>${badgeStatus(p.status)}</td>
+        <td>${formatarData(p.criado_em)}</td>
+        <td onclick="event.stopPropagation()">
+          <select class="select-status" onchange="atualizarStatus(${p.id}, this.value, this)">
+            <option value="pendente"   ${p.status==='pendente'  ?'selected':''}>Pendente</option>
+            <option value="confirmado" ${p.status==='confirmado'?'selected':''}>Confirmado</option>
+            <option value="entregue"   ${p.status==='entregue'  ?'selected':''}>Entregue</option>
+            <option value="cancelado"  ${p.status==='cancelado' ?'selected':''}>Cancelado</option>
+          </select>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function limparFiltros() {
+    document.getElementById('filtro-status').value = '';
+    document.getElementById('filtro-inicio').value = '';
+    document.getElementById('filtro-fim').value    = '';
+    document.getElementById('filtro-busca').value  = '';
+    carregarPedidos();
+  }
+
+  // ============================
+  // EXPORT CSV
+  // ============================
+  function exportarCSV() {
+    if (!pedidosCarregados.length) {
+      mostrarToast('Nenhum pedido para exportar.', 'info');
+      return;
+    }
+    const cols = ['id','nome','telefone','email','endereco','numero','complemento','bairro','cidade','estado','cep','kit','valor','status','criado_em'];
+    const header = cols.join(';');
+    const rows = pedidosCarregados.map(p =>
+      cols.map(c => {
+        const v = p[c] !== null && p[c] !== undefined ? String(p[c]) : '';
+        return v.includes(';') || v.includes('"') ? `"${v.replace(/"/g,'""')}"` : v;
+      }).join(';')
+    );
+    const csv = '﻿' + [header, ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `pedidos_${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    mostrarToast(`${pedidosCarregados.length} pedido(s) exportados.`, 'sucesso');
+  }
+
+  // ============================
+  // MODAL PEDIDO
+  // ============================
+  function abrirModal(id) {
+    const p = pedidosCarregados.find(x => Number(x.id) === id);
+    if (!p) return;
+
+    pedidoModalAtual = p;
+    document.getElementById('modal-titulo').textContent  = `Pedido #${p.id} — ${p.nome}`;
+    document.getElementById('modal-select-status').value = p.status;
+
+    const comp = p.complemento ? `, ${e(p.complemento)}` : '';
+    document.getElementById('modal-corpo').innerHTML = `
+      <div class="detalhe-linha"><strong>Status</strong><span>${badgeStatus(p.status)}</span></div>
+      <div class="detalhe-linha"><strong>Nome</strong><span>${e(p.nome)}</span></div>
+      <div class="detalhe-linha"><strong>Telefone</strong><span>${e(p.telefone)}</span></div>
+      <div class="detalhe-linha"><strong>E-mail</strong><span>${e(p.email) || '—'}</span></div>
+      <hr style="border:none;border-top:1px solid #30363D;margin:14px 0;" />
+      <div class="detalhe-linha"><strong>Endereço</strong><span>${e(p.endereco)}, ${e(p.numero)}${comp}</span></div>
+      <div class="detalhe-linha"><strong>Bairro</strong><span>${e(p.bairro)}</span></div>
+      <div class="detalhe-linha"><strong>Cidade/UF</strong><span>${e(p.cidade)}/${e(p.estado)}</span></div>
+      <div class="detalhe-linha"><strong>CEP</strong><span>${formatarCep(p.cep)}</span></div>
+      <hr style="border:none;border-top:1px solid #30363D;margin:14px 0;" />
+      <div class="detalhe-linha"><strong>Kit</strong><span>${e(KITS_LABEL[p.kit] || p.kit)}</span></div>
+      <div class="detalhe-linha"><strong>Valor</strong><span style="font-weight:700;color:#3FB68B;">${formatarValor(p.valor)}</span></div>
+      <div class="detalhe-linha"><strong>Pedido em</strong><span>${formatarData(p.criado_em)}</span></div>
+      <div class="detalhe-linha"><strong>Atualizado em</strong><span>${formatarData(p.atualizado_em)}</span></div>
+    `;
+
+    document.getElementById('modal-pedido').classList.add('aberto');
+  }
+
+  function fecharModal() {
+    document.getElementById('modal-pedido').classList.remove('aberto');
+    pedidoModalAtual = null;
+  }
+
+  async function salvarStatusModal() {
+    if (!pedidoModalAtual) return;
+    const novoStatus = document.getElementById('modal-select-status').value;
+    const ok = await atualizarStatus(pedidoModalAtual.id, novoStatus);
+    if (ok) { fecharModal(); carregarPedidos(); }
+  }
+
+  document.getElementById('modal-pedido').addEventListener('click', function(e) {
+    if (e.target === this) fecharModal();
+  });
+
+  // ============================
+  // ATUALIZAR STATUS
+  // ============================
+  async function atualizarStatus(id, novoStatus, selectEl) {
+    try {
+      const resp  = await fetch(`/api/pedidos/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: novoStatus })
+      });
+      const dados = await resp.json();
+      if (dados.sucesso) {
+        mostrarToast(`Pedido #${id} → ${novoStatus}`, 'sucesso');
+        return true;
+      } else {
+        mostrarToast('Erro: ' + dados.erro, 'erro');
+        if (selectEl) carregarPedidos();
+        return false;
+      }
+    } catch (err) {
+      mostrarToast('Erro de conexão.', 'erro');
+      return false;
+    }
+  }
+
+  // ============================
+  // CIDADES
+  // ============================
+  async function carregarCidades() {
+    try {
+      const resp   = await fetch('/api/cidades');
+      if (!resp.ok) { redirecionarLogin(); return; }
+      const cidades = await resp.json();
+      const tbody   = document.getElementById('tbody-cidades');
+
+      document.getElementById('cfg-cidades-ativas').textContent =
+        cidades.filter(c => c.cod_disponivel).length;
+
+      tbody.innerHTML = cidades.map(c => `
+        <tr>
+          <td><strong>${c.nome}</strong></td>
+          <td>${c.estado}</td>
+          <td>${formatarCep(c.cep_inicio)}</td>
+          <td>${formatarCep(c.cep_fim)}</td>
+          <td>
+            <label class="toggle-switch" title="${c.cod_disponivel ? 'Desativar COD' : 'Ativar COD'}">
+              <input type="checkbox" ${c.cod_disponivel ? 'checked' : ''} onchange="toggleCod(${c.id}, this.checked)" />
+              <span class="toggle-slider"></span>
+            </label>
+            <span style="margin-left:8px;font-size:.82rem;color:${c.cod_disponivel ? '#3FB68B' : '#F85149'};">
+              ${c.cod_disponivel ? 'Ativo' : 'Inativo'}
+            </span>
+          </td>
+        </tr>
+      `).join('');
+    } catch (err) {
+      console.error('Erro ao carregar cidades:', err);
+    }
+  }
+
+  async function toggleCod(id, ativar) {
+    try {
+      const resp  = await fetch(`/api/admin/cidades/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cod_disponivel: ativar })
+      });
+      const dados = await resp.json();
+      if (dados.sucesso) {
+        mostrarToast(dados.mensagem, 'sucesso');
+        setTimeout(carregarCidades, 300);
+      } else {
+        mostrarToast('Erro: ' + dados.erro, 'erro');
+        carregarCidades();
+      }
+    } catch (err) {
+      mostrarToast('Erro de conexão.', 'erro');
+      carregarCidades();
+    }
+  }
+
+  // ============================
+  // CONFIGURAÇÕES
+  // ============================
+  async function carregarConfiguracoes() {
+    try {
+      const resp = await fetch('/api/pedidos');
+      if (resp.ok) {
+        const pedidos = await resp.json();
+        document.getElementById('cfg-total-pedidos').textContent = pedidos.length;
+      }
+    } catch (err) {}
+  }
+
+  // ============================
+  // LOGOUT
+  // ============================
+  async function fazerLogout() {
+    try { await fetch('/api/auth/logout', { method: 'POST' }); } catch (err) {}
+    window.location.href = '/login.html';
+  }
+
+  function redirecionarLogin() {
+    window.location.href = '/login.html';
+  }
+
+  // ============================
+  // INICIALIZAÇÃO
+  // ============================
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const r = await fetch('/api/auth/me');
+      if (r.status === 401) { redirecionarLogin(); return; }
+      const dados = await r.json();
+      if (dados.usuario) {
+        document.getElementById('nome-admin').textContent = dados.usuario;
+      }
+      carregarDashboard();
+    } catch {
+      redirecionarLogin();
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AmericanFit — O apoio que faltava para desinchar e perder medidas</title>
+  <meta name="description" content="Fórmula em cápsulas com ativos naturais que auxilia na saciedade, leveza e disposição. Pagamento na entrega em cidades selecionadas ou compra online segura com envio rastreado." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- ── WHATSAPP FLUTUANTE ─────────────────────────────── -->
+<a href="https://wa.me/5546999718672?text=Ol%C3%A1!%20Tenho%20interesse%20no%20AmericanFit%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.%20Pode%20me%20ajudar%3F"
+   class="wpp-float" target="_blank" rel="noopener" aria-label="Falar com atendente">
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+    <path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="currentColor"/>
+  </svg>
+  <span class="wpp-label">Falar com atendente</span>
+</a>
+
+<!-- ── BARRA DE ANÚNCIO ───────────────────────────────── -->
+<div id="announcement-bar">
+  <div class="ann-inner">
+    <span class="ann-dot"></span>
+    <span class="ann-text">AmericanFit entrega em mais de 190 cidades com pagamento na entrega — consulte sua condição agora</span>
+    <button class="ann-cta" onclick="scrollToCep()">Consultar minha condição</button>
+    <button class="ann-close" id="closeBar" aria-label="Fechar">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-grid">
+
+    <!-- Conteúdo -->
+    <div class="hero-content">
+      <div class="hero-urgency-pill">
+        🔥 Estoque limitado — confira disponibilidade agora
+      </div>
+
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Mais de 10.000 clientes &nbsp;|&nbsp; Aprovado ANVISA
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="hl-1">O apoio que</span>
+        <span class="hl-2">faltava para</span>
+        <span class="hl-3">emagrecer</span>
+      </h1>
+
+      <p class="hero-body">
+        Fórmula em cápsulas com ativos naturais que auxilia mulheres na rotina de emagrecimento, ajudando na sensação de leveza, saciedade e disposição no dia a dia.
+      </p>
+
+      <p class="hero-impact-line">
+        Clientes relatam redução de medidas com o uso contínuo do AmericanFit.
+      </p>
+
+      <button class="btn-primary" onclick="scrollToCep()">
+        Consultar minha condição de entrega
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <p class="hero-micro">Pagamento na entrega em cidades selecionadas ou compra online segura com envio rastreado.</p>
+
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5l3.5 3.5 6.5-7" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Compra Segura</span>
+        </div>
+        <span class="trust-sep"></span>
+        <div class="trust-item">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1l1.5 3.2 3.5.5-2.5 2.4.6 3.4-3.1-1.6-3.1 1.6.6-3.4L1.5 4.7l3.5-.5z" stroke="#1A7A4A" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          <span>Garantia de 30 dias</span>
+        </div>
+        <span class="trust-sep"></span>
+        <div class="trust-item">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1.5C4.5 3 3 5 3 6.8a3.5 3.5 0 0 0 7 0c0-1.8-1.5-3.8-3.5-5.3z" stroke="#1A7A4A" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          <span>Rastreio pelo WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mídia -->
+    <div class="hero-media">
+      <div class="hero-glow"></div>
+      <img src="/imagens/Group-2557.png" alt="AmericanFit — 3 frascos" class="hero-product" fetchpriority="high">
+      <img src="/imagens/selocorreto.png" alt="100% Quality" class="hero-quality-seal">
+      <div class="hero-badge-anvisa">
+        <span class="badge-label">ANVISA</span>
+        <span class="badge-sub">Aprovado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,36 C240,72 480,0 720,36 C960,72 1200,0 1440,36 L1440,72 L0,72 Z" fill="#F7F6F2"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ── BENEFÍCIOS ─────────────────────────────────────── -->
+<section class="benefits">
+  <div class="sec-container">
+    <div class="sec-header will-animate">
+      <p class="sec-overline">Por que as clientes escolhem</p>
+      <h2 class="sec-title">Por que tantas mulheres estão escolhendo o AmericanFit?</h2>
+    </div>
+    <div class="benefits-grid benefits-grid-3">
+      <article class="benefit-card will-animate">
+        <div class="benefit-num">01</div>
+        <h3 class="benefit-title">Ajuda a reduzir o inchaço</h3>
+        <p class="benefit-text">Sensação de corpo mais leve ao longo do dia, desde as primeiras semanas de uso contínuo.</p>
+        <div class="benefit-deco"></div>
+      </article>
+      <article class="benefit-card will-animate">
+        <div class="benefit-num">02</div>
+        <h3 class="benefit-title">Auxilia no controle da fome</h3>
+        <p class="benefit-text">Menos vontade de beliscar doces e carboidratos fora de hora, facilitando a rotina alimentar.</p>
+        <div class="benefit-deco"></div>
+      </article>
+      <article class="benefit-card will-animate">
+        <div class="benefit-num">03</div>
+        <h3 class="benefit-title">Apoia a perda de medidas</h3>
+        <p class="benefit-text">Ativos naturais que ajudam sua rotina de emagrecimento com uso simples e contínuo.</p>
+        <div class="benefit-deco"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMO FUNCIONA ──────────────────────────────────── -->
+<section class="hiw-section">
+  <div class="hiw-blob"></div>
+  <div class="hiw-inner">
+
+    <div class="hiw-row-top">
+      <div class="hiw-text will-animate">
+        <p class="sec-overline">Entenda o produto</p>
+        <h2 class="hiw-title">Como funciona<br><span class="hiw-brand">o AmericanFit?</span></h2>
+        <p class="hiw-desc">O <strong class="hiw-brand-inline">AmericanFit</strong> é um suplemento alimentar em cápsulas com ativos naturais que auxilia na saciedade, ajuda a reduzir o inchaço e apoia o metabolismo — dando suporte para mulheres que buscam emagrecer com mais constância e leveza no dia a dia.</p>
+        <p class="hiw-desc">Com apenas <strong>1 cápsula ao dia</strong>, os ativos trabalham para reduzir a vontade de beliscar, auxiliar na eliminação do inchaço e dar mais disposição para manter a rotina.</p>
+      </div>
+      <div class="hiw-photos will-animate">
+        <div class="hiw-photo hiw-photo-1">
+          <img src="/imagens/imagem-pote.png" alt="AmericanFit — frasco">
+        </div>
+        <div class="hiw-photo hiw-photo-2">
+          <img src="/imagens/frasco-2.png" alt="AmericanFit — kit 3 frascos">
+        </div>
+      </div>
+    </div>
+
+    <div class="hiw-row-bottom">
+      <div class="hiw-product-img will-animate">
+        <img src="/imagens/Group-2557.png" alt="AmericanFit — 3 frascos">
+      </div>
+      <div class="hiw-for-you will-animate">
+        <p class="hiw-for-you-text">O <strong class="hiw-brand-inline">AmericanFit</strong> é para você que está cansada de tentar dieta após dieta sem conseguir manter a constância — e que quer uma solução prática para apoiar o processo de emagrecimento no dia a dia.</p>
+      </div>
+    </div>
+
+    <div class="hiw-cta will-animate">
+      <button class="btn-hiw" onclick="scrollToCep()">
+        Quero consultar minha condição de entrega
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SEÇÃO DE VERIFICAÇÃO DE CIDADE ────────────────── -->
+<section class="cep-section" id="verificar-cep">
+  <div class="cep-wave-top">
+    <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C360,72 1080,0 1440,54 L1440,0 L0,0 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <div class="cep-inner">
+    <h2 class="cep-title will-animate">
+      Veja a melhor forma<br>
+      <span class="cep-title-accent">de receber seu AmericanFit</span>
+    </h2>
+    <p class="cep-subtitle will-animate">
+      Algumas cidades contam com pagamento somente na entrega. Para outras regiões, o envio é feito com compra online segura, código de rastreio e atendimento pelo WhatsApp.
+    </p>
+
+    <div class="cidade-selector will-animate">
+      <div class="cidade-step">
+        <label class="cidade-select-label" for="select-estado">1. Selecione seu estado</label>
+        <div class="select-wrap">
+          <select id="select-estado" class="cidade-select" onchange="carregarCidades(this.value, 'select-cidade', 'step-cidade')">
+            <option value="">— Selecione o estado —</option>
+            <option value="AM">Amazonas (AM)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="CE">Ceará (CE)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="ES">Espírito Santo (ES)</option>
+            <option value="GO">Goiás (GO)</option>
+            <option value="MA">Maranhão (MA)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="MS">Mato Grosso do Sul (MS)</option>
+            <option value="PA">Pará (PA)</option>
+            <option value="PB">Paraíba (PB)</option>
+            <option value="PE">Pernambuco (PE)</option>
+            <option value="PI">Piauí (PI)</option>
+            <option value="PR">Paraná (PR)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="RN">Rio Grande do Norte (RN)</option>
+            <option value="RS">Rio Grande do Sul (RS)</option>
+            <option value="SC">Santa Catarina (SC)</option>
+            <option value="SP">São Paulo (SP)</option>
+          </select>
+        </div>
+      </div>
+      <div class="cidade-step" id="step-cidade" style="display:none">
+        <label class="cidade-select-label" for="select-cidade">2. Selecione sua cidade</label>
+        <div class="select-wrap">
+          <select id="select-cidade" class="cidade-select" onchange="verificarCidade(this.value, document.getElementById('select-estado').value)">
+            <option value="">— Selecione a cidade —</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="cep-social-proof will-animate">
+      <div class="avatar-stack">
+        <div class="avatar-item" style="background:#1A7A4A">M</div>
+        <div class="avatar-item" style="background:#0D5C39">F</div>
+        <div class="avatar-item" style="background:#259B65">A</div>
+        <div class="avatar-item" style="background:#1A7A4A">C</div>
+      </div>
+      <p class="cep-proof-text"><strong>+10.000 mulheres</strong> já receberam com pagamento na entrega ou envio rastreado</p>
+    </div>
+
+    <!-- Resultado: Rota A — COD disponível -->
+    <div id="result-cod" class="cep-result result-ok" style="display:none">
+      <span class="result-dot green"></span>
+      <div>
+        <p class="result-title">✅ Boa notícia! Sua cidade possui pagamento na entrega disponível.</p>
+        <p class="result-sub">Você pode pedir seu AmericanFit agora, receber em casa, conferir o produto lacrado e pagar somente ao entregador.</p>
+        <div class="result-selos">
+          <span class="result-selo">Sem PIX antecipado</span>
+          <span class="result-selo">Sem cartão</span>
+          <span class="result-selo">Pague ao receber</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA COD — aparece quando cidade tem entrega na entrega -->
+    <div id="cta-cod" style="display:none; text-align:center; padding: var(--s-8) 0 var(--s-2);">
+      <button class="btn-primary" style="font-size:1.05rem; padding:18px 42px; display:inline-flex; align-items:center; gap:10px;" onclick="irParaPedido()">
+        Comprar com pagamento na entrega
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M3 9h12M9 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <p style="font-size:.82rem; color:rgba(255,255,255,.6); margin-top:14px; font-family:var(--f-body);">
+        Você preencherá seus dados na próxima tela
+      </p>
+    </div>
+
+    <!-- Resultado: Rota B — Envio rastreado -->
+    <div id="result-online" class="cep-result result-online" style="display:none">
+      <span class="result-dot orange"></span>
+      <div>
+        <p class="result-title">📦 Sua cidade possui envio rastreado com compra protegida online.</p>
+        <p class="result-sub">Para sua região, o AmericanFit é enviado por transportadora com pagamento online seguro, código de rastreio e acompanhamento pelo WhatsApp.</p>
+        <div class="result-selos">
+          <span class="result-selo">Compra segura</span>
+          <span class="result-selo">Rastreio no WhatsApp</span>
+          <span class="result-selo">Garantia de recebimento</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULÁRIO COD — Rota A -->
+  <div id="formulario-cod" style="display:none; position:relative; z-index:1;">
+    <div class="form-header">
+      <span class="form-header-badge">Pagamento na entrega</span>
+      <h3 class="form-header-title">Escolha seu tratamento AmericanFit</h3>
+      <p class="form-header-sub">Selecione o kit e preencha os dados de entrega. Você pagará ao entregador quando o produto chegar.</p>
+    </div>
+
+    <div class="kit-sel-wrap">
+      <span class="kit-sel-label">Selecione seu kit</span>
+      <div class="kit-grid">
+
+        <label class="kit-option" for="kit-1">
+          <input type="radio" id="kit-1" name="kit" value="1mes" onchange="atualizarResumo()">
+          <div class="kit-inner">
+            <img src="/imagens/imagem-pote.png" alt="Kit 1 mês" class="kit-img">
+            <p class="kit-name">Kit Inicial — 1 Frasco</p>
+            <p class="kit-desc">Para quem quer experimentar o AmericanFit.</p>
+            <p class="kit-price">R$ 97,00</p>
+            <div class="kit-check">
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </label>
+
+        <label class="kit-option featured" for="kit-2">
+          <input type="radio" id="kit-2" name="kit" value="3meses" onchange="atualizarResumo()">
+          <span class="kit-badge-top">Mais Escolhido</span>
+          <div class="kit-inner">
+            <img src="/imagens/frasco-2.png" alt="Kit 3 meses" class="kit-img">
+            <p class="kit-name">Kit Recomendado — 3 Frascos</p>
+            <p class="kit-desc">Ideal para um tratamento contínuo e melhores resultados.</p>
+            <p class="kit-price">R$ 247,00</p>
+            <p class="kit-economy">Economize R$ 44,00</p>
+            <div class="kit-check">
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </label>
+
+        <label class="kit-option" for="kit-3">
+          <input type="radio" id="kit-3" name="kit" value="5meses" onchange="atualizarResumo()">
+          <div class="kit-inner">
+            <img src="/imagens/frasco-3.png" alt="Kit 5 meses" class="kit-img">
+            <p class="kit-name">Melhor Custo-Benefício — 5 Frascos</p>
+            <p class="kit-desc">Para quem quer manter constância e o melhor valor por frasco.</p>
+            <p class="kit-price">R$ 397,00</p>
+            <p class="kit-economy">Melhor custo-benefício</p>
+            <div class="kit-check">
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path d="M1 5l3.5 3.5L11 1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <div id="form-conteudo">
+      <div class="form-body">
+        <span class="form-sec-label">Dados pessoais</span>
+        <div class="form-grid">
+          <div class="form-full">
+            <label class="form-label" for="nome">Nome completo</label>
+            <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name">
+          </div>
+          <div>
+            <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+            <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel">
+          </div>
+          <div>
+            <label class="form-label" for="email">
+              E-mail <span class="form-opt">(opcional)</span>
+            </label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email">
+          </div>
+        </div>
+
+        <span class="form-sec-label">Endereço de entrega</span>
+        <div class="form-grid">
+          <div class="form-full">
+            <label class="form-label" for="endereco">Endereço</label>
+            <input class="form-input" type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." autocomplete="street-address">
+          </div>
+          <div>
+            <label class="form-label" for="numero">Número</label>
+            <input class="form-input" type="text" id="numero" name="numero" placeholder="Ex: 123">
+          </div>
+          <div>
+            <label class="form-label" for="complemento">Complemento <span class="form-opt">(opcional)</span></label>
+            <input class="form-input" type="text" id="complemento" name="complemento" placeholder="Apto, bloco...">
+          </div>
+          <div>
+            <label class="form-label" for="bairro">Bairro</label>
+            <input class="form-input" type="text" id="bairro" name="bairro" placeholder="Seu bairro">
+          </div>
+          <div>
+            <label class="form-label" for="cep-form">CEP <span class="form-opt">(opcional)</span></label>
+            <input class="form-input" type="text" id="cep-form" name="cep" placeholder="00000-000" maxlength="9" inputmode="numeric">
+          </div>
+          <div>
+            <label class="form-label" for="cidade-form">Cidade</label>
+            <input class="form-input" type="text" id="cidade-form" name="cidade" readonly>
+          </div>
+          <div>
+            <label class="form-label" for="estado-form">Estado</label>
+            <input class="form-input" type="text" id="estado-form" name="estado" readonly>
+          </div>
+        </div>
+
+        <div class="order-summary" id="order-summary" style="display:none">
+          <div class="sum-row">
+            <span class="sum-label">Kit selecionado</span>
+            <span class="sum-val" id="resumo-kit">—</span>
+          </div>
+          <div class="sum-divider"></div>
+          <div class="sum-row">
+            <span class="sum-label">Forma de pagamento</span>
+            <span class="sum-val green">Pagamento na entrega</span>
+          </div>
+          <div class="sum-divider"></div>
+          <div class="sum-row sum-total">
+            <span>Total</span>
+            <span id="resumo-valor">R$ 0,00</span>
+          </div>
+        </div>
+
+        <button class="btn-confirm" id="btn-confirmar" type="button">
+          Pedir com pagamento na entrega
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="form-disclaimer">
+          Ao confirmar, você concorda em receber o produto e efetuar o pagamento no momento da entrega.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tela de sucesso -->
+    <div class="success-screen" id="tela-sucesso">
+      <div class="success-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#1A7A4A" stroke-width="1.5"/>
+          <path d="M12 20l6 6 10-11" stroke="#1A7A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 class="success-title">Pedido confirmado!</h3>
+      <p class="success-text" id="msg-sucesso">
+        Recebemos seu pedido! Em breve nossa equipe entrará em contato para confirmar a entrega.
+      </p>
+      <a href="https://wa.me/5546999718672?text=Ol%C3%A1!%20Acabei%20de%20fazer%20um%20pedido%20do%20AmericanFit%20com%20pagamento%20na%20entrega.%20Aguardo%20o%20contato%20da%20equipe%20para%20confirmar%20a%20entrega!%20%F0%9F%9B%96"
+         class="btn-whatsapp" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M10 1.5C5.3 1.5 1.5 5.3 1.5 10c0 1.5.4 2.9 1.1 4.2L1.5 18.5l4.4-1.1A8.4 8.4 0 0 0 10 18.5c4.7 0 8.5-3.8 8.5-8.5S14.7 1.5 10 1.5z" fill="currentColor"/>
+        </svg>
+        Falar com atendente no WhatsApp
+      </a>
+
+      <div class="success-pay-wrap">
+        <p class="success-pay-title">Quer garantir com desconto pagando agora?</p>
+        <a href="#" id="btn-coinzz" class="btn-coinzz" target="_blank" rel="noopener">
+          Pagar agora com Coinzz
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="success-pay-note">Link de pagamento seguro via Coinzz</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS ONLINE — Rota B -->
+  <div id="cards-online" style="display:none; position:relative; z-index:1;">
+    <div class="form-header">
+      <span class="form-header-badge" style="background:rgba(245,158,11,.15);color:#D97706;border-color:rgba(245,158,11,.3);">Envio rastreado</span>
+      <h3 class="form-header-title">Escolha seu tratamento AmericanFit</h3>
+      <p class="form-header-sub">Selecione a melhor opção para seu objetivo. Pagamento online seguro com envio rastreado e acompanhamento pelo WhatsApp.</p>
+    </div>
+    <div class="braip-inner">
+      <div class="braip-grid braip-grid-5">
+
+        <!-- KIT 1 -->
+        <article class="kit-card will-animate">
+          <div class="kit-card-media">
+            <img src="/imagens/imagem-pote.png" alt="1 Frasco">
+            <div class="kit-price-badge">R$ 177<span>/kit</span></div>
+          </div>
+          <div class="kit-card-body">
+            <h3 class="kit-card-name">1 Frasco</h3>
+            <p class="kit-card-parcel">Para quem quer experimentar.</p>
+            <div class="kit-card-footer">
+              <span class="kit-frete">Frete grátis</span>
+              <button class="btn-kit btn-kit-online" onclick="irParaPedidoOnline('1mes')">
+                R$ 177,00
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- KIT 2 -->
+        <article class="kit-card will-animate">
+          <div class="kit-card-media">
+            <img src="/imagens/frasco-2.png" alt="2 Frascos">
+            <div class="kit-price-badge">R$ 109<span>/frasco</span></div>
+          </div>
+          <div class="kit-card-body">
+            <h3 class="kit-card-name">2 Frascos</h3>
+            <p class="kit-card-parcel">Tratamento 2 meses.</p>
+            <div class="kit-card-footer">
+              <span class="kit-frete">Frete grátis</span>
+              <button class="btn-kit btn-kit-online" onclick="irParaPedidoOnline('2meses')">
+                R$ 217,00
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- KIT 3 — DESTAQUE -->
+        <article class="kit-card featured will-animate">
+          <span class="kit-card-badge">Mais Escolhido</span>
+          <div class="kit-card-media">
+            <img src="/imagens/frasco-3.png" alt="3 Frascos">
+            <div class="kit-price-badge">R$ 99<span>/frasco</span></div>
+          </div>
+          <div class="kit-card-body">
+            <h3 class="kit-card-name">3 Frascos</h3>
+            <p class="kit-card-parcel">Tratamento 3 meses.</p>
+            <div class="kit-card-footer">
+              <span class="kit-frete">Frete grátis</span>
+              <button class="btn-kit btn-kit-online" onclick="irParaPedidoOnline('3meses')">
+                R$ 297,00
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- KIT 4 -->
+        <article class="kit-card will-animate">
+          <div class="kit-card-media">
+            <img src="/imagens/frasco-6.png" alt="4 Frascos">
+            <div class="kit-price-badge">R$ 82<span>/frasco</span></div>
+          </div>
+          <div class="kit-card-body">
+            <h3 class="kit-card-name">4 Frascos</h3>
+            <p class="kit-card-parcel">Tratamento 4 meses.</p>
+            <div class="kit-card-footer">
+              <span class="kit-frete">Frete grátis</span>
+              <button class="btn-kit btn-kit-online" onclick="irParaPedidoOnline('4meses')">
+                R$ 327,00
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- KIT 5 -->
+        <article class="kit-card will-animate">
+          <div class="kit-card-media">
+            <img src="/imagens/frasco-6.png" alt="5 Frascos">
+            <div class="kit-price-badge">R$ 79<span>/frasco</span></div>
+          </div>
+          <div class="kit-card-body">
+            <h3 class="kit-card-name">5 Frascos</h3>
+            <p class="kit-card-parcel">Tratamento 5 meses.</p>
+            <div class="kit-card-footer">
+              <span class="kit-frete">Frete grátis</span>
+              <button class="btn-kit btn-kit-online" onclick="irParaPedidoOnline('5meses')">
+                R$ 397,00
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="cep-wave-bot">
+    <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,54 C360,0 1080,72 1440,18 L1440,72 L0,72 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</section>
+
+<section class="security-section-REMOVED" style="display:none">
+  <div class="sec-container">
+    <div class="sec-header will-animate">
+      <p class="sec-overline">Sem risco para você</p>
+      <h2 class="sec-title">Compra segura, independente da sua forma de entrega</h2>
+    </div>
+    <div class="security-grid">
+      <div class="security-block will-animate">
+        <div class="security-block-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3L5 7v7c0 5.5 3.9 10.7 9 12 5.1-1.3 9-6.5 9-12V7l-9-4z" stroke="#1A7A4A" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 14l3 3 5-5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="security-block-title">Pagamento na entrega</h3>
+        <p class="security-block-sub">Disponível em cidades selecionadas.</p>
+        <ul class="security-list">
+          <li>Produto lacrado e protegido</li>
+          <li>Você paga somente na hora da entrega</li>
+          <li>Confirmação pelo WhatsApp</li>
+          <li>Atendimento direto com nossa equipe</li>
+        </ul>
+      </div>
+      <div class="security-block will-animate">
+        <div class="security-block-icon" style="background:rgba(245,158,11,.1);">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="8" width="20" height="14" rx="2" stroke="#D97706" stroke-width="1.5"/><path d="M4 12h20" stroke="#D97706" stroke-width="1.5"/><path d="M8 16h4M8 19h3" stroke="#D97706" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="security-block-title">Compra online protegida</h3>
+        <p class="security-block-sub">Para cidades fora da rota COD.</p>
+        <ul class="security-list">
+          <li>Pagamento em ambiente seguro</li>
+          <li>Código de rastreio enviado no WhatsApp</li>
+          <li>Suporte antes e depois da compra</li>
+          <li>Garantia de 30 dias</li>
+        </ul>
+      </div>
+    </div>
+    <p class="security-closing will-animate">Em qualquer modalidade, seu pedido é acompanhado do início ao fim.</p>
+  </div>
+</section>
+
+<section class="how-cod" style="display:none">
+  <div class="how-cod-wave-top">
+    <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,0 C480,72 960,0 1440,54 L1440,0 L0,0 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <div class="how-inner">
+    <div class="how-header will-animate">
+      <p class="sec-overline">Entenda a fórmula</p>
+      <h2 class="sec-title">Como o AmericanFit ajuda no processo de emagrecimento?</h2>
+      <p style="color:rgba(255,255,255,.7);font-family:var(--f-body);max-width:520px;margin:0 auto var(--s-10);text-align:center;">O AmericanFit combina ativos naturais que auxiliam em três pontos importantes para quem busca perder medidas.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step will-animate">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Auxilia na saciedade</h3>
+        <p class="step-text">Ajuda a reduzir a vontade de comer fora de hora e facilita o controle da rotina alimentar sem esforço excessivo.</p>
+      </div>
+      <div class="step will-animate">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Ajuda na sensação de leveza</h3>
+        <p class="step-text">Ativos naturais auxiliam na redução da sensação de inchaço e retenção, deixando o corpo mais leve no dia a dia.</p>
+      </div>
+      <div class="step will-animate">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Apoia o metabolismo</h3>
+        <p class="step-text">Ingredientes como chá verde, cafeína e pimenta cayenne são usados em fórmulas voltadas ao gasto energético e disposição.</p>
+      </div>
+    </div>
+
+    <div class="how-cta will-animate">
+      <button class="btn-primary" onclick="scrollToCep()">
+        Quero escolher meu kit
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="how-cod-wave-bot">
+    <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,18 C480,72 960,0 1440,54 L1440,72 L0,72 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</section>
+
+<section class="for-you-section" style="display:none">
+  <div class="sec-container">
+    <div class="sec-header will-animate">
+      <p class="sec-overline">Identificação</p>
+      <h2 class="sec-title">O AmericanFit é para você que...</h2>
+    </div>
+    <div class="for-you-grid">
+      <ul class="for-you-list">
+        <li class="for-you-item will-animate">
+          <svg class="for-you-check" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#E8F5EE"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sente a barriga inchada mesmo tentando se cuidar
+        </li>
+        <li class="for-you-item will-animate">
+          <svg class="for-you-check" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#E8F5EE"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Tem vontade de beliscar doces e massas fora de hora
+        </li>
+        <li class="for-you-item will-animate">
+          <svg class="for-you-check" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#E8F5EE"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Quer mais controle na rotina alimentar
+        </li>
+        <li class="for-you-item will-animate">
+          <svg class="for-you-check" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#E8F5EE"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Busca apoio para perder medidas
+        </li>
+        <li class="for-you-item will-animate">
+          <svg class="for-you-check" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#E8F5EE"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Quer uma solução prática, com apenas 1 cápsula ao dia
+        </li>
+        <li class="for-you-item will-animate">
+          <svg class="for-you-check" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" fill="#E8F5EE"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Prefere comprar com segurança e acompanhamento pelo WhatsApp
+        </li>
+      </ul>
+      <div class="for-you-cta-wrap will-animate">
+        <p class="for-you-transition">Se você se identificou com esses sinais, o AmericanFit pode ser o apoio que faltava para começar sua mudança.</p>
+        <button class="btn-primary" onclick="scrollToCep()">
+          Consultar minha condição agora
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ingredients" style="display:none">
+  <div class="ing-grid">
+    <div class="ing-list-wrap">
+      <div class="will-animate">
+        <p class="sec-overline">Composição</p>
+        <h2 class="sec-title" style="margin-bottom:2.5rem;">7 ativos naturais trabalhando juntos</h2>
+      </div>
+
+      <div class="ingredient will-animate">
+        <span class="ing-index">01</span>
+        <span><strong class="ing-name">Garcinia Cambogia</strong><span class="ing-dash">—</span><span class="ing-desc">Auxilia na saciedade e no controle do apetite.</span></span>
+      </div>
+      <div class="ingredient will-animate">
+        <span class="ing-index">02</span>
+        <span><strong class="ing-name">Chá Verde</strong><span class="ing-dash">—</span><span class="ing-desc">Fonte de antioxidantes e apoio ao metabolismo.</span></span>
+      </div>
+      <div class="ingredient will-animate">
+        <span class="ing-index">03</span>
+        <span><strong class="ing-name">Cafeína Anidra</strong><span class="ing-dash">—</span><span class="ing-desc">Ajuda na disposição e energia no dia a dia.</span></span>
+      </div>
+      <div class="ingredient will-animate">
+        <span class="ing-index">04</span>
+        <span><strong class="ing-name">Pimenta Cayenne</strong><span class="ing-dash">—</span><span class="ing-desc">Ativo termogênico usado em fórmulas de controle de peso.</span></span>
+      </div>
+      <div class="ingredient will-animate">
+        <span class="ing-index">05</span>
+        <span><strong class="ing-name">Gengibre</strong><span class="ing-dash">—</span><span class="ing-desc">Auxilia na digestão e na sensação de leveza.</span></span>
+      </div>
+      <div class="ingredient will-animate">
+        <span class="ing-index">06</span>
+        <span><strong class="ing-name">Cromo</strong><span class="ing-dash">—</span><span class="ing-desc">Relacionado ao metabolismo de carboidratos.</span></span>
+      </div>
+      <div class="ingredient will-animate">
+        <span class="ing-index">07</span>
+        <span><strong class="ing-name">L-Carnitina</strong><span class="ing-dash">—</span><span class="ing-desc">Participa do transporte de gorduras no organismo.</span></span>
+      </div>
+
+      <div class="will-animate" style="margin-top:var(--s-8);">
+        <button class="btn-primary" onclick="scrollToCep()">
+          Ver preço e entrega disponível
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ing-product-wrap">
+      <img src="/imagens/frasco-secao_png.png" alt="AmericanFit — frasco" class="ing-product">
+      <img src="/imagens/depoimento-2.jpg" alt="7 benefícios do AmericanFit" class="ing-benefits-img">
+    </div>
+  </div>
+</section>
+
+<!-- ── PROVA SOCIAL ───────────────────────────────────── -->
+<section class="social-proof">
+  <div class="sec-container">
+    <div class="sec-header will-animate">
+      <p class="sec-overline sp-overline">Resultados reais</p>
+      <h2 class="sec-title sp-title">Clientes que decidiram começar</h2>
+      <p class="sp-sub">Relatos enviados por clientes durante o uso do AmericanFit. Os resultados podem variar de pessoa para pessoa.</p>
+    </div>
+
+    <div class="sp-hero will-animate">
+      <img src="/imagens/rafaela.jpg" alt="Resultado — 30 dias com AmericanFit" class="sp-hero-img">
+      <div class="sp-hero-info">
+        <div class="sp-wpp-badge">
+          <svg width="16" height="16" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="#25D366"/></svg>
+          Enviada via WhatsApp
+        </div>
+        <h3 class="sp-hero-name">Rafaela — 30 dias de uso</h3>
+        <p class="sp-hero-quote">"Comecei sentindo menos inchaço e depois percebi minhas roupas mais soltas. O que mais gostei foi conseguir controlar melhor a vontade de comer doce."</p>
+        <div class="sp-stars">★★★★★</div>
+        <div class="sp-hero-stats">
+          <div class="sp-stat">
+            <span class="sp-stat-num">−8 kg</span>
+            <span class="sp-stat-lbl">relatados em 30 dias</span>
+          </div>
+          <div class="sp-stat">
+            <span class="sp-stat-num">44 → 40</span>
+            <span class="sp-stat-lbl">tamanho de roupa</span>
+          </div>
+          <div class="sp-stat">
+            <span class="sp-stat-num">2 meses</span>
+            <span class="sp-stat-lbl">de uso contínuo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-grid">
+      <div class="sp-card will-animate">
+        <img src="/imagens/detox-novo.png" alt="Resultado antes e depois" class="sp-card-img" style="object-position: top;">
+        <div class="sp-card-overlay">
+          <span class="sp-wpp-small">
+            <svg width="12" height="12" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="#25D366"/></svg>
+            Antes e depois relatado
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="authority-section" style="display:none">
+  <div class="sec-container">
+    <div class="sec-header will-animate">
+      <p class="sec-overline">Por que confiar</p>
+      <h2 class="sec-title">Produto lacrado, envio acompanhado e atendimento direto</h2>
+    </div>
+    <div class="authority-grid">
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 2L4 6v6c0 4.4 3.1 8.5 7 9.6 3.9-1.1 7-5.2 7-9.6V6l-7-4z" stroke="#1A7A4A" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        Frasco lacrado e protegido
+      </div>
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="#25D366"/></svg>
+        Compra acompanhada pelo WhatsApp
+      </div>
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M12 2l1.5 4.5 4.5.5-3.2 3 .9 4.5-3.7-2-3.7 2 .9-4.5L6 7l4.5-.5z" stroke="#1A7A4A" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        Envio com rastreio quando aplicável
+      </div>
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 3v4M11 15v4M3 11h4M15 11h4" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="4" stroke="#1A7A4A" stroke-width="1.5"/></svg>
+        Garantia de 30 dias
+      </div>
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 10h14M4 14h8" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round"/><rect x="3" y="5" width="16" height="14" rx="2" stroke="#1A7A4A" stroke-width="1.5"/></svg>
+        Suporte antes e depois da compra
+      </div>
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M5 11l4 4 8-8" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Pagamento na entrega em cidades selecionadas
+      </div>
+      <div class="authority-item will-animate">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="8" width="16" height="11" rx="2" stroke="#1A7A4A" stroke-width="1.5"/><path d="M8 8V6a3 3 0 0 1 6 0v2" stroke="#1A7A4A" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Compra online segura para demais regiões
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GARANTIA ──────────────────────────────────────── -->
+<section class="guarantee-section guarantee-compact">
+  <div class="guarantee-compact-inner will-animate">
+    <p class="guarantee-overline">Risco zero para você</p>
+    <h2 class="guarantee-title">
+      Você tem 30 dias<br>
+      <span class="guarantee-title-accent">de garantia</span>
+    </h2>
+    <p class="guarantee-text">
+      Queremos que você compre com segurança. Seu pedido conta com garantia de 30 dias, acompanhamento pelo WhatsApp e suporte antes e depois da compra.
+    </p>
+    <ul class="guarantee-list">
+      <li>Atendimento pelo WhatsApp</li>
+      <li>Suporte após a compra</li>
+      <li>Pedido acompanhado do início ao fim</li>
+      <li>Segurança na modalidade disponível para sua região</li>
+    </ul>
+    <button class="btn-guarantee" onclick="scrollToCep()">
+      Escolher meu kit agora
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<section class="urgency-section" style="display:none">
+  <div class="urgency-inner will-animate">
+    <div class="urgency-pulse"></div>
+    <div class="urgency-text-wrap">
+      <p class="urgency-title">ESTOQUE LIMITADO POR REGIÃO</p>
+      <p class="urgency-sub">Disponibilidade pode variar <strong>nesta semana</strong></p>
+      <p class="urgency-body">Trabalhamos com estoque controlado para garantir a qualidade da entrega. Consulte sua condição antes que as vagas se esgotem.</p>
+    </div>
+    <button class="btn-urgency" onclick="scrollToCep()">Consultar minha condição agora</button>
+  </div>
+</section>
+
+<section class="bottom-city-section" id="verificar-cidade-baixo" style="display:none">
+  <div class="bottom-city-inner">
+    <div class="will-animate">
+      <p class="sec-overline" style="color:#6CDEA8;">Pagamento na entrega ou envio rastreado</p>
+      <h2 class="delivery-title" style="color:white;margin-bottom:var(--s-4);">Consulte agora sua<br><span class="delivery-title-green">condição de entrega</span></h2>
+      <p style="color:rgba(255,255,255,.75);margin-bottom:var(--s-8);font-family:var(--f-body);">As modalidades disponíveis podem variar conforme sua região. Verifique agora.</p>
+    </div>
+    <div class="cidade-selector will-animate">
+      <div class="cidade-step">
+        <label class="cidade-select-label" for="select-estado-2">1. Selecione seu estado</label>
+        <div class="select-wrap">
+          <select id="select-estado-2" class="cidade-select" onchange="carregarCidades(this.value, 'select-cidade-2', 'step-cidade-2')">
+            <option value="">— Selecione o estado —</option>
+            <option value="AM">Amazonas (AM)</option>
+            <option value="BA">Bahia (BA)</option>
+            <option value="CE">Ceará (CE)</option>
+            <option value="DF">Distrito Federal (DF)</option>
+            <option value="ES">Espírito Santo (ES)</option>
+            <option value="GO">Goiás (GO)</option>
+            <option value="MA">Maranhão (MA)</option>
+            <option value="MG">Minas Gerais (MG)</option>
+            <option value="MS">Mato Grosso do Sul (MS)</option>
+            <option value="PA">Pará (PA)</option>
+            <option value="PB">Paraíba (PB)</option>
+            <option value="PE">Pernambuco (PE)</option>
+            <option value="PI">Piauí (PI)</option>
+            <option value="PR">Paraná (PR)</option>
+            <option value="RJ">Rio de Janeiro (RJ)</option>
+            <option value="RN">Rio Grande do Norte (RN)</option>
+            <option value="RS">Rio Grande do Sul (RS)</option>
+            <option value="SC">Santa Catarina (SC)</option>
+            <option value="SP">São Paulo (SP)</option>
+          </select>
+        </div>
+      </div>
+      <div class="cidade-step" id="step-cidade-2" style="display:none">
+        <label class="cidade-select-label" for="select-cidade-2">2. Selecione sua cidade</label>
+        <div class="select-wrap">
+          <select id="select-cidade-2" class="cidade-select" onchange="verificarCidadeInferior(this.value, document.getElementById('select-estado-2').value)">
+            <option value="">— Selecione a cidade —</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────── -->
+<section class="faq-section">
+  <div class="sec-container">
+    <div class="sec-header will-animate">
+      <p class="sec-overline">Tire suas dúvidas</p>
+      <h2 class="sec-title">Perguntas frequentes</h2>
+    </div>
+    <ul class="faq-list" role="list">
+      <li class="faq-item will-animate">
+        <button class="faq-question" aria-expanded="false">
+          Como sei se minha cidade tem pagamento na entrega?
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Você informa seu estado e cidade na consulta desta página. Se sua região estiver dentro da rota COD, a opção de pagamento na entrega será liberada para você finalizar o pedido.</p>
+        </div>
+      </li>
+      <li class="faq-item will-animate">
+        <button class="faq-question" aria-expanded="false">
+          E se minha cidade não tiver pagamento na entrega?
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Você ainda pode receber o AmericanFit por envio rastreado com compra online segura. Após a compra, você recebe o acompanhamento do pedido pelo WhatsApp.</p>
+        </div>
+      </li>
+      <li class="faq-item will-animate">
+        <button class="faq-question" aria-expanded="false">
+          Em quanto tempo posso sentir diferença?
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Algumas clientes relatam sensação de leveza e melhor controle da fome nas primeiras semanas. Os resultados variam de pessoa para pessoa e dependem da constância no uso.</p>
+        </div>
+      </li>
+      <li class="faq-item will-animate">
+        <button class="faq-question" aria-expanded="false">
+          Tem contraindicação?
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Gestantes, lactantes, pessoas com doenças pré-existentes ou que usam medicamentos devem consultar um profissional de saúde antes de usar.</p>
+        </div>
+      </li>
+      <li class="faq-item will-animate">
+        <button class="faq-question" aria-expanded="false">
+          Qual kit escolher?
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>O kit de 1 frasco é ideal para experimentar. O kit de 3 frascos é o mais escolhido por quem quer seguir um uso contínuo. O kit de 5 frascos tem melhor custo-benefício para quem quer manter a constância.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="final-cta-section" style="display:none">
+  <div class="final-cta-inner will-animate">
+    <p class="sec-overline" style="color:#6CDEA8;">Última chance</p>
+    <h2 class="final-cta-title">Consulte agora sua condição de entrega</h2>
+    <p class="final-cta-sub">As modalidades disponíveis podem variar conforme sua região. Verifique se sua cidade possui pagamento na entrega ou envio rastreado com compra protegida.</p>
+    <button class="btn-primary" onclick="scrollToCep()">
+      Ver preço e forma de entrega
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <p class="final-cta-micro">Atendimento pelo WhatsApp &nbsp;|&nbsp; Garantia de 30 dias &nbsp;|&nbsp; Pedido acompanhado</p>
+  </div>
+</section>
+
+<!-- ── RODAPÉ ─────────────────────────────────────────── -->
+<footer class="site-footer">
+  <p class="footer-brand">AmericanFit</p>
+  <p class="footer-info">
+    NaturaFit Produtos Naturais Ltda. &nbsp;|&nbsp; CNPJ: 12.345.678/0001-90<br>
+    contato@americanfit.com.br
+  </p>
+  <p class="footer-disc">
+    Este produto é um suplemento alimentar e não é um medicamento. Não substitui tratamento médico.
+    Resultados podem variar individualmente. Consulte um profissional de saúde.
+  </p>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* === BARRA DE ANÚNCIO === */
+  const closeBar = document.getElementById('closeBar');
+  const annBar   = document.getElementById('announcement-bar');
+  if (sessionStorage.getItem('barClosed')) annBar.style.display = 'none';
+  closeBar.addEventListener('click', () => {
+    annBar.style.display = 'none';
+    sessionStorage.setItem('barClosed', '1');
+  });
+
+  /* === SCROLL TO CEP === */
+  function scrollToCep() {
+    document.getElementById('verificar-cep').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  window.scrollToCep = scrollToCep;
+
+  /* === INTERSECTION OBSERVER — ANIMAÇÕES === */
+  const io = new IntersectionObserver((entries) => {
+    let delay = 0;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const d = delay;
+        setTimeout(() => entry.target.classList.add('is-visible'), d);
+        delay += 60;
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.will-animate').forEach(el => io.observe(el));
+
+  /* === COUNTER ANIMATION === */
+  function animateCount(el, target, ms) {
+    const start = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - start) / ms, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target).toLocaleString('pt-BR') + (target >= 1000 ? '+' : '');
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.dataset.target) {
+        animateCount(e.target, parseInt(e.target.dataset.target), 1600);
+        cio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => cio.observe(el));
+
+  /* === MÁSCARA CEP (campo opcional no formulário) === */
+  const cepForm = document.getElementById('cep-form');
+  if (cepForm) {
+    cepForm.addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').slice(0, 8);
+      if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5);
+      this.value = v;
+    });
+  }
+
+  /* === MÁSCARA TELEFONE === */
+  const telInput = document.getElementById('telefone');
+  if (telInput) {
+    telInput.addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length <= 10) v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+      else                 v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+      this.value = v;
+    });
+  }
+
+  /* === SELEÇÃO DE KIT === */
+  const kitsInfo = {
+    '1mes':   { nome: 'Kit Inicial — 1 Frasco', valor: 'R$ 97,00' },
+    '3meses': { nome: 'Kit Recomendado — 3 Frascos', valor: 'R$ 247,00' },
+    '5meses': { nome: 'Melhor Custo-Benefício — 5 Frascos', valor: 'R$ 397,00' },
+  };
+
+  function atualizarResumo() {
+    const kit = document.querySelector('input[name="kit"]:checked');
+    if (!kit) return;
+    const info = kitsInfo[kit.value];
+    if (!info) return;
+    document.getElementById('resumo-kit').textContent = info.nome;
+    document.getElementById('resumo-valor').textContent = info.valor;
+    document.getElementById('order-summary').style.display = 'block';
+  }
+  window.atualizarResumo = atualizarResumo;
+
+  /* === ROTA ATIVA === */
+  let rotaAtiva = null; // 'cod' | 'online'
+
+  /* === DADOS DE CIDADES (embutidos para performance) === */
+  const cidadesPorEstado = {
+    AM: ['Manaus'],
+    BA: ['Lauro de Freitas', 'Salvador'],
+    CE: ['Caucaia', 'Eusébio', 'Fortaleza', 'Itaitinga', 'Maracanaú', 'Maranguape', 'Pacatuba'],
+    DF: ['Arniqueira', 'Brasília', 'Ceilândia', 'Gama', 'Guará', 'Recanto das Emas', 'Samambaia', 'Santa Maria', 'Sol Nascente/Pôr do Sol', 'Taguatinga', 'Vicente Pires'],
+    ES: ['Cariacica', 'Guarapari', 'Serra', 'Viana', 'Vila Velha', 'Vitória'],
+    GO: ['Abadia de Goiás', 'Águas Lindas de Goiás', 'Anápolis', 'Aparecida de Goiânia', 'Aragoiânia', 'Bonfinópolis', 'Caturaí', 'Cidade Ocidental', 'Goianápolis', 'Goianira', 'Goiânia', 'Guapó', 'Hidrolândia', 'Inhumas', 'Luziânia', 'Nerópolis', 'Novo Gama', 'Senador Canedo', 'Terezópolis de Goiás', 'Trindade', 'Valparaíso de Goiás'],
+    MA: ['Paço do Lumiar', 'Raposa', 'São José de Ribamar', 'São Luís', 'Timon'],
+    MG: ['Belo Horizonte', 'Betim', 'Carmo do Cajuru', 'Citrolândia', 'Contagem', 'Divinópolis', 'Ibirité', 'Igaratinga', 'Itaúna', 'Nova Serrana', 'Pará de Minas', 'Sabará', 'Santa Luzia'],
+    MS: ['Campo Grande'],
+    PA: ['Ananindeua', 'Belém', 'Marituba'],
+    PB: ['Bayeux', 'Cabedelo', 'João Pessoa', 'Santa Rita'],
+    PE: ['Abreu e Lima', 'Cabo de Santo Agostinho', 'Camaragibe', 'Igarassu', 'Jaboatão dos Guararapes', 'Olinda', 'Paulista', 'Recife', 'São Lourenço da Mata'],
+    PI: ['Teresina'],
+    PR: ['Almirante Tamandaré', 'Araucária', 'Campina Grande do Sul', 'Campo Largo', 'Colombo', 'Curitiba', 'Fazenda Rio Grande', 'Itaperuçu', 'Pinhais', 'Piraquara', 'Quatro Barras', 'Rio Branco do Sul', 'São José dos Pinhais'],
+    RJ: ['Belford Roxo', 'Duque de Caxias', 'Mesquita', 'Nilópolis', 'Niterói', 'Nova Iguaçu', 'Queimados', 'Rio de Janeiro', 'São João de Meriti'],
+    RN: ['Ceará-Mirim', 'Extremoz', 'Macaíba', 'Mossoró', 'Natal', 'Parnamirim', 'São Gonçalo do Amarante'],
+    RS: ['Alvorada', 'Bento Gonçalves', 'Bom Princípio', 'Cachoeirinha', 'Campo Bom', 'Canoas', 'Carlos Barbosa', 'Caxias do Sul', 'Eldorado do Sul', 'Estância Velha', 'Esteio', 'Farroupilha', 'Garibaldi', 'Gravataí', 'Guaíba', 'Novo Hamburgo', 'Portão', 'Porto Alegre', 'Sapiranga', 'Sapucaia do Sul', 'São Leopoldo', 'São Sebastião do Caí', 'São Vendelino', 'Viamão'],
+    SC: ['Balneário Camboriú', 'Balneário Piçarras', 'Barra Velha', 'Blumenau', 'Camboriú', 'Itajaí', 'Itapema', 'Jaraguá do Sul', 'Joinville', 'Navegantes', 'Penha'],
+    SP: ['Americana', 'Arujá', 'Barueri', 'Caçapava', 'Caieiras', 'Cajamar', 'Campo Limpo Paulista', 'Campinas', 'Carapicuíba', 'Cotia', 'Cubatão', 'Diadema', 'Embu das Artes', 'Ferraz de Vasconcelos', 'Francisco Morato', 'Franco da Rocha', 'Guarulhos', 'Hortolândia', 'Itapevi', 'Itaquaquecetuba', 'Jacareí', 'Jandira', 'Jundiaí', 'Mauá', 'Mogi das Cruzes', 'Monte Mor', 'Nova Odessa', 'Osasco', 'Paulínia', 'Poá', 'Praia Grande', 'Ribeirão Pires', 'Ribeirão Preto', 'Rio Grande da Serra', "Santa Bárbara d'Oeste", 'Santo André', 'Santos', 'São Bernardo do Campo', 'São Caetano do Sul', 'São José dos Campos', 'São Paulo', 'São Vicente', 'Sumaré', 'Suzano', 'Taboão da Serra', 'Taubaté', 'Valinhos', 'Vinhedo'],
+  };
+
+  /* === CARREGAR CIDADES DO ESTADO === */
+  function carregarCidades(estado, selectCidadeId, stepCidadeId) {
+    const stepCidade   = document.getElementById(stepCidadeId);
+    const selectCidade = document.getElementById(selectCidadeId);
+
+    if (!estado) {
+      stepCidade.style.display = 'none';
+      return;
+    }
+
+    const lista = cidadesPorEstado[estado] || [];
+    selectCidade.innerHTML = '<option value="">— Selecione a cidade —</option>';
+    selectCidade.innerHTML += '<option value="__nao_listada__">⟶ Minha cidade não está na lista</option>';
+    lista.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      selectCidade.appendChild(opt);
+    });
+
+    stepCidade.style.display = 'block';
+    selectCidade.value = '';
+
+    document.getElementById('result-cod').style.display    = 'none';
+    document.getElementById('result-online').style.display = 'none';
+    document.getElementById('cta-cod').style.display        = 'none';
+    document.getElementById('formulario-cod').style.display = 'none';
+    document.getElementById('cards-online').style.display   = 'none';
+  }
+  window.carregarCidades = carregarCidades;
+
+  /* === VERIFICAR CIDADE (selector principal) === */
+  function verificarCidade(cidade, estado) {
+    if (!cidade) return;
+
+    document.getElementById('result-cod').style.display    = 'none';
+    document.getElementById('result-online').style.display = 'none';
+    document.getElementById('formulario-cod').style.display = 'none';
+    document.getElementById('cards-online').style.display   = 'none';
+
+    if (cidade === '__nao_listada__') {
+      rotaAtiva = 'online';
+      document.getElementById('result-online').style.display = 'flex';
+      document.getElementById('cards-online').style.display  = 'block';
+      setTimeout(() => {
+        document.getElementById('result-online').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    } else {
+      rotaAtiva = 'cod';
+      document.getElementById('result-cod').style.display = 'flex';
+      document.getElementById('cta-cod').style.display    = 'block';
+      setTimeout(() => {
+        document.getElementById('result-cod').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 200);
+    }
+  }
+  window.verificarCidade = verificarCidade;
+
+  function irParaPedido() {
+    const cidade = document.getElementById('select-cidade').value;
+    const estado = document.getElementById('select-estado').value;
+    if (!cidade || !estado) return;
+    window.location.href = `/pedido.html?cidade=${encodeURIComponent(cidade)}&estado=${encodeURIComponent(estado)}`;
+  }
+  window.irParaPedido = irParaPedido;
+
+  const COINZZ_URLS = {
+    '1mes':   'https://app.coinzz.com.br/checkout/compre-1-oamerican-fit-com-desconto-0/69ffebb14c51a',
+    '2meses': 'https://app.coinzz.com.br/checkout/compre-1-e-leve-2-oamerican-fit-com-desconto-0/69ffebb14c51a',
+    '3meses': 'https://app.coinzz.com.br/checkout/compre-2-e-leve-3-oamerican-fit---r29700-0/69ffebb14c51a',
+    '4meses': 'https://app.coinzz.com.br/checkout/compre-2-e-leve-4-oamerican-fit-oficial-0/69ffebb14c51a',
+    '5meses': 'https://app.coinzz.com.br/checkout/compre-3-e-leve-5-oamerican-fit-oficial-0/69ffebb14c51a',
+  };
+
+  function irParaPedidoOnline(kit) {
+    const url = COINZZ_URLS[kit];
+    if (url) window.open(url, '_blank');
+  }
+  window.irParaPedidoOnline = irParaPedidoOnline;
+
+  /* === VERIFICAR CIDADE (selector inferior) === */
+  function verificarCidadeInferior(cidade, estado) {
+    if (!cidade) return;
+    verificarCidade(cidade, estado);
+    const targetId = cidade === '__nao_listada__' ? 'result-online' : 'formulario-cod';
+    setTimeout(() => {
+      document.getElementById('verificar-cep').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 600);
+    }, 100);
+  }
+  window.verificarCidadeInferior = verificarCidadeInferior;
+
+  /* === ENVIAR PEDIDO COD === */
+  document.getElementById('btn-confirmar').addEventListener('click', async function () {
+    const g = id => document.getElementById(id);
+    const dados = {
+      nome:        g('nome').value.trim(),
+      telefone:    g('telefone').value.trim(),
+      email:       g('email').value.trim(),
+      endereco:    g('endereco').value.trim(),
+      numero:      g('numero').value.trim(),
+      complemento: g('complemento').value.trim(),
+      bairro:      g('bairro').value.trim(),
+      cidade:      g('cidade-form').value,
+      estado:      g('estado-form').value,
+      cep:         g('cep-form').value,
+      kit:         (document.querySelector('input[name="kit"]:checked') || {}).value || ''
+    };
+
+    const req = ['nome', 'telefone', 'endereco', 'numero', 'bairro'];
+    let err = false;
+    req.forEach(f => {
+      const el = g(f);
+      if (!dados[f]) { el.classList.add('is-error'); err = true; }
+      else el.classList.remove('is-error');
+    });
+    if (!dados.kit) { err = true; }
+    if (err) { document.querySelector('.is-error')?.scrollIntoView({ behavior:'smooth', block:'center' }); return; }
+
+    const btn = this;
+    btn.disabled = true;
+    btn.innerHTML = `<svg style="animation:spin360 .6s linear infinite" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M9 2a7 7 0 0 1 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg> Confirmando...`;
+
+    try {
+      const resp = await fetch('/api/pedidos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      const res = await resp.json();
+
+      btn.disabled = false;
+      btn.innerHTML = `Pedir com pagamento na entrega <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+      if (res.sucesso) {
+        document.getElementById('msg-sucesso').textContent = res.mensagem;
+        document.getElementById('form-conteudo').style.display = 'none';
+        const suc = document.getElementById('tela-sucesso');
+        suc.style.display = 'block';
+        suc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        alert('Erro: ' + (res.erro || 'Tente novamente.'));
+      }
+    } catch {
+      btn.disabled = false;
+      btn.innerHTML = `Pedir com pagamento na entrega <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      alert('Erro de conexão. Verifique sua internet e tente novamente.');
+    }
+  });
+
+  /* === FAQ ACCORDION === */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const open = this.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-question').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.style.maxHeight = '0';
+      });
+      if (!open) {
+        this.setAttribute('aria-expanded', 'true');
+        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* === CONTADOR DE URGÊNCIA === */
+  (function() {
+    const el = document.getElementById('vagas-count');
+    if (!el) return;
+    function update() { el.textContent = 38 + Math.floor(Math.random() * 22); }
+    update();
+    setInterval(update, 8000);
+  })();
+
+})();
+</script>
+</body>
+</html>

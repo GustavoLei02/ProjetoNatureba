@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finalizar Pedido — AmericanFit | Pagamento na entrega</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="checkout-header">
+  <div class="checkout-header-inner">
+    <span class="checkout-logo">AmericanFit</span>
+    <div class="checkout-header-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Pagamento na entrega
+    </div>
+    <a href="https://wa.me/5546999718672?text=Ol%C3%A1!%20Estou%20finalizando%20meu%20pedido%20do%20AmericanFit%20e%20preciso%20de%20ajuda." class="checkout-header-wpp" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="#25D366"/>
+      </svg>
+      Dúvidas? Fale conosco
+    </a>
+  </div>
+</header>
+
+<!-- ── CITY CONFIRMATION STRIPE ───────────────────────────── -->
+<div class="checkout-city-stripe">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6CDEA8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+  Entrega com pagamento na entrega confirmada para
+  <span class="checkout-city-name" id="city-display">—</span>
+</div>
+
+<!-- ── CONTEÚDO DO CHECKOUT ───────────────────────────────── -->
+<div id="checkout-conteudo" class="checkout-page">
+  <div class="checkout-grid">
+
+    <!-- COLUNA ESQUERDA: Kit + Dados -->
+    <div>
+
+      <!-- CARD 1: Kit -->
+      <div class="checkout-card">
+        <div class="checkout-card-header">
+          <div class="checkout-step-num">1</div>
+          <h2 class="checkout-card-title">Escolha seu tratamento</h2>
+        </div>
+        <div class="checkout-card-body">
+          <div class="checkout-kit-grid">
+
+            <div class="checkout-kit-option" id="ko-1mes" onclick="selecionarKit('1mes')">
+              <div class="checkout-kit-radio" id="kr-1mes"></div>
+              <img class="checkout-kit-img" src="/imagens/imagem-pote.png" alt="Kit 1 mês">
+              <div class="checkout-kit-info">
+                <p class="checkout-kit-name">Kit Inicial — 1 Frasco</p>
+                <p class="checkout-kit-desc">Para quem quer experimentar o AmericanFit.</p>
+              </div>
+              <div class="checkout-kit-price">
+                <span class="checkout-kit-price-val">R$ 97,00</span>
+              </div>
+            </div>
+
+            <div class="checkout-kit-option featured-kit" id="ko-3meses" onclick="selecionarKit('3meses')">
+              <span class="checkout-kit-badge">Mais Escolhido</span>
+              <div class="checkout-kit-radio" id="kr-3meses"></div>
+              <img class="checkout-kit-img" src="/imagens/frasco-2.png" alt="Kit 3 meses">
+              <div class="checkout-kit-info">
+                <p class="checkout-kit-name">Kit Recomendado — 3 Frascos</p>
+                <p class="checkout-kit-desc">Tratamento contínuo com melhores resultados.</p>
+              </div>
+              <div class="checkout-kit-price">
+                <span class="checkout-kit-price-val">R$ 247,00</span>
+                <span class="checkout-kit-economy">Economize R$ 44</span>
+              </div>
+            </div>
+
+            <div class="checkout-kit-option" id="ko-5meses" onclick="selecionarKit('5meses')">
+              <div class="checkout-kit-radio" id="kr-5meses"></div>
+              <img class="checkout-kit-img" src="/imagens/frasco-3.png" alt="Kit 5 meses">
+              <div class="checkout-kit-info">
+                <p class="checkout-kit-name">Kit 5 Frascos — Melhor Custo-Benefício</p>
+                <p class="checkout-kit-desc">Constância garantida com o melhor valor por frasco.</p>
+              </div>
+              <div class="checkout-kit-price">
+                <span class="checkout-kit-price-val">R$ 397,00</span>
+                <span class="checkout-kit-economy">Melhor valor/frasco</span>
+              </div>
+            </div>
+
+          </div>
+          <input type="hidden" id="kit-selecionado" value="">
+          <p class="checkout-kit-error" id="kit-error" style="display:none;">Selecione um kit para continuar.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2: Dados pessoais -->
+      <div class="checkout-card">
+        <div class="checkout-card-header">
+          <div class="checkout-step-num">2</div>
+          <h2 class="checkout-card-title">Dados pessoais</h2>
+        </div>
+        <div class="checkout-card-body">
+          <div class="form-grid">
+            <div class="form-full">
+              <label class="form-label" for="nome">Nome completo <span style="color:#E8591A">*</span></label>
+              <input class="form-input" type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+            </div>
+            <div>
+              <label class="form-label" for="telefone">Telefone / WhatsApp <span style="color:#E8591A">*</span></label>
+              <input class="form-input" type="tel" id="telefone" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric">
+            </div>
+            <div>
+              <label class="form-label" for="email">E-mail <span class="form-opt">(opcional)</span></label>
+              <input class="form-input" type="email" id="email" placeholder="seu@email.com" autocomplete="email">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Endereço -->
+      <div class="checkout-card">
+        <div class="checkout-card-header">
+          <div class="checkout-step-num">3</div>
+          <h2 class="checkout-card-title">Endereço de entrega</h2>
+        </div>
+        <div class="checkout-card-body">
+          <div class="form-grid">
+            <div class="form-full">
+              <label class="form-label" for="endereco">Endereço <span style="color:#E8591A">*</span></label>
+              <input class="form-input" type="text" id="endereco" placeholder="Rua, Avenida..." autocomplete="street-address">
+            </div>
+            <div>
+              <label class="form-label" for="numero">Número <span style="color:#E8591A">*</span></label>
+              <input class="form-input" type="text" id="numero" placeholder="Ex: 123">
+            </div>
+            <div>
+              <label class="form-label" for="complemento">Complemento <span class="form-opt">(opcional)</span></label>
+              <input class="form-input" type="text" id="complemento" placeholder="Apto, bloco...">
+            </div>
+            <div>
+              <label class="form-label" for="bairro">Bairro <span style="color:#E8591A">*</span></label>
+              <input class="form-input" type="text" id="bairro" placeholder="Seu bairro">
+            </div>
+            <div>
+              <label class="form-label" for="cep">CEP <span class="form-opt">(opcional)</span></label>
+              <input class="form-input" type="text" id="cep" placeholder="00000-000" maxlength="9" inputmode="numeric">
+            </div>
+            <div>
+              <label class="form-label" for="cidade-input">Cidade</label>
+              <input class="form-input" type="text" id="cidade-input" readonly style="background:#f5f5f5;color:#666;">
+            </div>
+            <div>
+              <label class="form-label" for="estado-input">Estado</label>
+              <input class="form-input" type="text" id="estado-input" readonly style="background:#f5f5f5;color:#666;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile: botão de confirmar (visível apenas em mobile, o sidebar some) -->
+      <div id="mobile-cta" style="display:none;">
+        <button class="btn-confirm-checkout" id="btn-confirmar-mobile" onclick="enviarPedido()">
+          Confirmar pedido — Pagar na entrega
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12M9 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="checkout-summary-disclaimer" style="text-align:center;margin-top:10px;">
+          Você paga somente quando o produto chegar.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- COLUNA DIREITA: Resumo (sticky) -->
+    <div>
+      <div class="checkout-summary">
+        <div class="checkout-summary-product">
+          <img id="sum-product-img" src="/imagens/frasco-3.png" alt="AmericanFit" onerror="this.src='/imagens/imagem-pote.png'">
+          <div class="checkout-summary-brand">AmericanFit</div>
+        </div>
+        <div class="checkout-summary-body">
+
+          <div class="checkout-summary-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Resumo do pedido
+          </div>
+
+          <div class="checkout-sum-row">
+            <span class="checkout-sum-key">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              Kit
+            </span>
+            <strong class="checkout-sum-val" id="sum-kit-nome">Selecione um kit</strong>
+          </div>
+
+          <div class="checkout-sum-row">
+            <span class="checkout-sum-key">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Frete
+            </span>
+            <span class="sum-badge-green">Grátis</span>
+          </div>
+
+          <div class="checkout-sum-row">
+            <span class="checkout-sum-key">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+              Pagamento
+            </span>
+            <span class="sum-badge-orange">Na entrega</span>
+          </div>
+
+          <div class="checkout-sum-total-block">
+            <span class="checkout-sum-total-label">Total a pagar</span>
+            <span class="checkout-sum-total-val" id="sum-total">—</span>
+          </div>
+
+          <button class="btn-confirm-checkout" id="btn-confirmar" onclick="enviarPedido()">
+            Confirmar pedido — Pagar na entrega
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12M9 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="checkout-summary-disclaimer">Você paga somente quando o produto chegar.</p>
+
+          <div class="checkout-trust-list">
+            <div class="checkout-trust-item">
+              <div class="checkout-trust-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              Pague somente ao receber
+            </div>
+            <div class="checkout-trust-item">
+              <div class="checkout-trust-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              Garantia de 30 dias
+            </div>
+            <div class="checkout-trust-item">
+              <div class="checkout-trust-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              Aprovado ANVISA
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TELA DE SUCESSO ─────────────────────────────────────── -->
+<div id="tela-sucesso" style="display:none; background:#F2F4F7; min-height:80vh;">
+  <div class="checkout-success">
+    <div class="checkout-success-icon">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+        <circle cx="22" cy="22" r="20" stroke="#1A7A4A" stroke-width="2"/>
+        <path d="M13 22l7 7 11-13" stroke="#1A7A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h1 class="checkout-success-title">Pedido confirmado!</h1>
+    <p class="checkout-success-sub">
+      Recebemos seu pedido e entraremos em contato pelo WhatsApp em breve para confirmar os detalhes da entrega. Você paga somente quando o produto chegar.
+    </p>
+    <div class="checkout-success-badge" id="success-pedido-id">Pedido #—</div>
+
+    <a href="#" id="wpp-sucesso"
+       class="btn-whatsapp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="currentColor"/></svg>
+      Confirmar pelo WhatsApp
+    </a>
+
+    <p style="font-family:var(--f-body);font-size:.85rem;color:#aaa;margin-top:8px;">
+      <a href="/" style="color:var(--c-brand);font-weight:700;text-decoration:none;">← Voltar para a página inicial</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  /* === URL PARAMS === */
+  const params       = new URLSearchParams(window.location.search);
+  const cidadePedido = params.get('cidade') || '';
+  const estadoPedido = params.get('estado') || '';
+
+  if (!cidadePedido || !estadoPedido) {
+    window.location.href = '/';
+  }
+
+  document.getElementById('city-display').textContent   = `${cidadePedido}/${estadoPedido}`;
+  document.getElementById('cidade-input').value         = cidadePedido;
+  document.getElementById('estado-input').value         = estadoPedido;
+  document.title = `Finalizar Pedido — ${cidadePedido}/${estadoPedido} | AmericanFit`;
+
+  /* === KITS === */
+  const KITS = {
+    '1mes':   { nome: 'Kit Inicial — 1 Frasco',              valor: 97.00  },
+    '3meses': { nome: 'Kit Recomendado — 3 Frascos',         valor: 247.00 },
+    '5meses': { nome: 'Kit 5 Frascos — Melhor Custo-Benefício', valor: 397.00 },
+  };
+
+  let kitAtual = null;
+
+  function selecionarKit(kit) {
+    kitAtual = kit;
+    document.getElementById('kit-selecionado').value = kit;
+    document.getElementById('kit-error').style.display = 'none';
+
+    Object.keys(KITS).forEach(k => {
+      const el = document.getElementById('ko-' + k);
+      if (el) el.classList.toggle('selecionado', k === kit);
+    });
+
+    const k = KITS[kit];
+    document.getElementById('sum-kit-nome').textContent = k.nome;
+    document.getElementById('sum-total').textContent    = `R$ ${k.valor.toFixed(2).replace('.', ',')}`;
+  }
+
+  /* === RESPONSIVO: mostra botão mobile abaixo do form === */
+  function ajustarLayout() {
+    const mobile = window.innerWidth <= 900;
+    document.getElementById('mobile-cta').style.display = mobile ? 'block' : 'none';
+  }
+  ajustarLayout();
+  window.addEventListener('resize', ajustarLayout);
+
+  /* === MÁSCARAS === */
+  document.getElementById('telefone').addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6)      v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+    else if (v.length > 0) v = '(' + v;
+    this.value = v;
+  });
+
+  document.getElementById('cep').addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').slice(0, 8);
+    this.value = v.length > 5 ? v.slice(0,5) + '-' + v.slice(5) : v;
+  });
+
+  /* === VALIDAÇÃO E ENVIO === */
+  function marcarCampoErro(id, erro) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (erro) el.classList.add('campo-erro');
+    else       el.classList.remove('campo-erro');
+  }
+
+  function setBtnLoading(loading) {
+    const btns = ['btn-confirmar', 'btn-confirmar-mobile'];
+    btns.forEach(id => {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      btn.disabled = loading;
+      btn.innerHTML = loading
+        ? 'Enviando pedido...'
+        : `Confirmar pedido — Pagar na entrega <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h12M9 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    });
+  }
+
+  async function enviarPedido() {
+    /* Kit */
+    const kit = document.getElementById('kit-selecionado').value;
+    if (!kit) {
+      document.getElementById('kit-error').style.display = 'block';
+      document.getElementById('ko-1mes').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    /* Campos obrigatórios */
+    const obrigatorios = ['nome', 'telefone', 'endereco', 'numero', 'bairro'];
+    let primeiroErro = null;
+
+    obrigatorios.forEach(id => {
+      const val = document.getElementById(id).value.trim();
+      const vazio = !val;
+      marcarCampoErro(id, vazio);
+      if (vazio && !primeiroErro) primeiroErro = id;
+    });
+
+    if (primeiroErro) {
+      document.getElementById(primeiroErro).scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById(primeiroErro).focus();
+      return;
+    }
+
+    setBtnLoading(true);
+
+    try {
+      const resp = await fetch('/api/pedidos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome:        document.getElementById('nome').value.trim(),
+          telefone:    document.getElementById('telefone').value.trim(),
+          email:       document.getElementById('email').value.trim(),
+          endereco:    document.getElementById('endereco').value.trim(),
+          numero:      document.getElementById('numero').value.trim(),
+          complemento: document.getElementById('complemento').value.trim(),
+          bairro:      document.getElementById('bairro').value.trim(),
+          cidade:      cidadePedido,
+          estado:      estadoPedido,
+          cep:         document.getElementById('cep').value.replace(/\D/g, ''),
+          kit,
+        }),
+      });
+
+      const dados = await resp.json();
+
+      if (dados.sucesso) {
+        const pedidoId = dados.pedido_id;
+        document.getElementById('success-pedido-id').textContent = `Pedido #${pedidoId}`;
+
+        const msg = encodeURIComponent(
+          `Olá! Confirmei meu pedido do AmericanFit. Pedido nº ${pedidoId} — ${cidadePedido}/${estadoPedido}. Aguardo o contato para confirmar a entrega! 🛍️`
+        );
+        document.getElementById('wpp-sucesso').href = `https://wa.me/5546999718672?text=${msg}`;
+
+        document.getElementById('checkout-conteudo').style.display = 'none';
+        document.getElementById('tela-sucesso').style.display      = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setBtnLoading(false);
+        /* Exibe erro inline acima do formulário */
+        mostrarErroGlobal(dados.erro || 'Erro ao registrar pedido. Tente novamente.');
+      }
+    } catch (err) {
+      setBtnLoading(false);
+      mostrarErroGlobal('Erro de conexão. Verifique sua internet e tente novamente.');
+    }
+  }
+
+  function mostrarErroGlobal(msg) {
+    let el = document.getElementById('erro-global');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'erro-global';
+      el.style.cssText = 'background:#fde8e8;color:#c0392b;border:1px solid #f5c6c6;border-radius:10px;padding:14px 18px;font-family:var(--f-body);font-size:.9rem;margin-bottom:16px;';
+      document.getElementById('checkout-conteudo').querySelector('.checkout-grid > div').prepend(el);
+    }
+    el.textContent = msg;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+
+</body>
+</html>

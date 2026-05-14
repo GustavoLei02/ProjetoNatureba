@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AmericanFit — Compra Online Segura</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    /* === PAYMENT METHOD TOGGLE === */
+    .pay-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .pay-tab {
+      flex: 1;
+      min-width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #fff;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+      font-family: var(--f-body);
+      font-size: .82rem;
+      font-weight: 700;
+      color: #555;
+      user-select: none;
+    }
+    .pay-tab:hover {
+      border-color: var(--c-brand);
+      background: rgba(26,122,74,.03);
+    }
+    .pay-tab.ativo {
+      border-color: var(--c-brand);
+      background: rgba(26,122,74,.06);
+      color: #1a1a1a;
+      box-shadow: 0 0 0 3px rgba(26,122,74,.1);
+    }
+    .pay-tab svg { opacity: .7; }
+    .pay-tab.ativo svg { opacity: 1; color: var(--c-brand); }
+    .pay-tab-rec {
+      font-size: .65rem;
+      font-weight: 800;
+      color: #fff;
+      background: var(--c-brand);
+      border-radius: 20px;
+      padding: 1px 7px;
+      margin-top: -2px;
+    }
+
+    /* === PIX COPY BOX === */
+    .pix-box {
+      background: #f0fdf6;
+      border: 1.5px solid rgba(26,122,74,.2);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+    .pix-qr {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: white;
+      padding: 8px;
+      margin: 0 auto 16px;
+      display: block;
+      border: 1px solid #ddd;
+    }
+    .pix-label { font-size: .8rem; color: #555; margin-bottom: 8px; font-family: var(--f-body); }
+    .pix-code-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: #fff;
+      border: 1.5px solid #d0e8d8;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .pix-code {
+      flex: 1;
+      font-family: 'DM Mono', monospace;
+      font-size: .72rem;
+      color: #333;
+      word-break: break-all;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .btn-pix-copy {
+      flex-shrink: 0;
+      background: var(--c-brand);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: .8rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--f-body);
+      transition: opacity .2s;
+      white-space: nowrap;
+    }
+    .btn-pix-copy:hover { opacity: .88; }
+    .pix-timer {
+      font-size: .78rem;
+      color: #888;
+      font-family: var(--f-body);
+    }
+    .pix-timer strong { color: #D97706; }
+
+    /* === BOLETO BOX === */
+    .boleto-box {
+      background: #fffbeb;
+      border: 1.5px solid rgba(217,119,6,.2);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .boleto-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(217,119,6,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .boleto-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin: 0 0 8px;
+      font-family: var(--f-body);
+    }
+    .boleto-sub {
+      font-size: .85rem;
+      color: #666;
+      margin: 0 0 20px;
+      font-family: var(--f-body);
+      line-height: 1.5;
+    }
+    .btn-boleto {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #D97706;
+      color: #fff;
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-weight: 800;
+      font-size: .95rem;
+      text-decoration: none;
+      font-family: var(--f-body);
+      transition: opacity .2s;
+    }
+    .btn-boleto:hover { opacity: .88; }
+    .boleto-warning {
+      font-size: .75rem;
+      color: #888;
+      margin-top: 14px;
+      font-family: var(--f-body);
+    }
+
+    /* === CREDIT CARD FORM === */
+    .card-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .card-form-full { grid-column: 1 / -1; }
+    .card-number-wrap { position: relative; }
+    .card-brand-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 20px;
+      object-fit: contain;
+      opacity: .7;
+    }
+    .parcelas-select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: .9rem;
+      font-family: var(--f-body);
+      color: #1a1a1a;
+      background: #fff;
+      cursor: pointer;
+    }
+    .parcelas-select:focus {
+      outline: none;
+      border-color: var(--c-brand);
+    }
+
+    /* === CARD SUCCESS === */
+    .card-success-box {
+      background: #f0fdf6;
+      border: 1.5px solid rgba(26,122,74,.2);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .card-success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(26,122,74,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    /* === INSTALLMENTS PRICE === */
+    .parcelas-info {
+      font-size: .8rem;
+      color: #666;
+      margin-top: 6px;
+      font-family: var(--f-body);
+    }
+
+    /* === SECURITY SEAL ROW === */
+    .security-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: .75rem;
+      color: #888;
+      font-family: var(--f-body);
+      margin-top: 10px;
+    }
+    .security-row svg { color: var(--c-brand); flex-shrink: 0; }
+
+    /* === TOAST MINI === */
+    .online-toast-wrap {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 320px;
+    }
+    .online-toast {
+      padding: 13px 18px;
+      border-radius: 10px;
+      font-family: var(--f-body);
+      font-size: .88rem;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+      animation: toastIn .3s ease forwards;
+    }
+    .online-toast.saindo { animation: toastOut .35s ease forwards; }
+    .online-toast.toast-erro { background: #E8591A; }
+    .online-toast.toast-ok   { background: #1A7A4A; }
+    .online-toast.toast-info { background: #334155; }
+    @keyframes toastIn { from { opacity:0; transform:translateX(30px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes toastOut { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(30px); } }
+
+    /* === MOBILE === */
+    @media (max-width: 520px) {
+      .card-form-grid { grid-template-columns: 1fr; }
+      .card-form-full { grid-column: 1 / -1; }
+      .pay-tabs { gap: 8px; }
+      .pay-tab { font-size: .75rem; padding: 11px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────── -->
+<header class="checkout-header">
+  <div class="checkout-header-inner">
+    <a href="/" class="checkout-logo" aria-label="AmericanFit — voltar ao início">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M9 1.5C6 4 3 6.5 3 9.5a6 6 0 0 0 12 0c0-3-3-5.5-6-8z" fill="var(--c-brand)"/>
+        <path d="M9 6v6M7 9.5l2 2 2-2" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      AmericanFit
+    </a>
+    <div class="checkout-header-pill">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M6 1L2 3.5v3.2C2 9 3.8 11 6 11.5 8.2 11 10 9 10 6.7V3.5L6 1z" fill="rgba(26,122,74,.2)" stroke="var(--c-brand)" stroke-width="1"/>
+        <path d="M4 6l1.5 1.5L8 4" stroke="var(--c-brand)" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      Compra Online Segura
+    </div>
+    <a href="https://wa.me/5546999718672?text=Ol%C3%A1!%20Estou%20finalizando%20minha%20compra%20do%20AmericanFit%20online%20e%20preciso%20de%20ajuda.%20Pode%20me%20auxiliar%3F"
+       class="checkout-header-wpp" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="#25D366"/>
+      </svg>
+      Precisa de ajuda?
+    </a>
+  </div>
+</header>
+
+<!-- ── ESTADO STRIPE ──────────────────────────────────── -->
+<div class="checkout-city-stripe" id="estado-stripe" style="display:none">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <path d="M7 1C4.5 3 2 5 2 7.2a5 5 0 0 0 10 0C12 5 9.5 3 7 1z" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.6)" stroke-width="1"/>
+  </svg>
+  Entrega para <span class="checkout-city-name" id="estado-nome">seu estado</span>
+  &nbsp;·&nbsp; Envio rastreado com acompanhamento pelo WhatsApp
+</div>
+
+<!-- ── TELA PRINCIPAL ─────────────────────────────────── -->
+<main class="checkout-page" id="tela-checkout">
+  <div class="checkout-grid">
+
+    <!-- COLUNA ESQUERDA — FORMULÁRIO -->
+    <div>
+
+      <!-- STEP 1: Kit -->
+      <div class="checkout-card">
+        <div class="checkout-card-header">
+          <span class="checkout-step-num">1</span>
+          <h2 class="checkout-card-title">Escolha seu kit</h2>
+        </div>
+        <div class="checkout-card-body">
+          <div class="checkout-kit-grid">
+
+            <div class="checkout-kit-option" id="opt-1mes" onclick="selecionarKit('1mes')">
+              <span class="checkout-kit-radio" id="radio-1mes"></span>
+              <img src="/imagens/imagem-pote.png" alt="Kit 1 mês" class="checkout-kit-img">
+              <div class="checkout-kit-info">
+                <p class="checkout-kit-name">Kit Inicial — 1 Frasco</p>
+                <p class="checkout-kit-desc">Para quem quer experimentar o AmericanFit.</p>
+              </div>
+              <div class="checkout-kit-price">
+                <p class="checkout-kit-price-val">R$ 97,00</p>
+              </div>
+            </div>
+
+            <div class="checkout-kit-option featured-kit" id="opt-3meses" onclick="selecionarKit('3meses')">
+              <span class="checkout-kit-radio" id="radio-3meses"></span>
+              <img src="/imagens/frasco-2.png" alt="Kit 3 meses" class="checkout-kit-img">
+              <div class="checkout-kit-info">
+                <p class="checkout-kit-name">Kit Recomendado — 3 Frascos</p>
+                <p class="checkout-kit-desc">Tratamento contínuo. O mais escolhido.</p>
+                <span class="checkout-kit-badge">Mais Escolhido</span>
+              </div>
+              <div class="checkout-kit-price">
+                <p class="checkout-kit-price-val">R$ 247,00</p>
+                <p class="checkout-kit-economy">−R$ 44</p>
+              </div>
+            </div>
+
+            <div class="checkout-kit-option" id="opt-5meses" onclick="selecionarKit('5meses')">
+              <span class="checkout-kit-radio" id="radio-5meses"></span>
+              <img src="/imagens/frasco-3.png" alt="Kit 5 meses" class="checkout-kit-img">
+              <div class="checkout-kit-info">
+                <p class="checkout-kit-name">Melhor Custo-Benefício — 5 Frascos</p>
+                <p class="checkout-kit-desc">Constância garantida com o melhor valor.</p>
+              </div>
+              <div class="checkout-kit-price">
+                <p class="checkout-kit-price-val">R$ 397,00</p>
+                <p class="checkout-kit-economy">Melhor valor</p>
+              </div>
+            </div>
+
+          </div>
+          <p class="checkout-kit-error" id="kit-erro" style="display:none">Selecione um kit para continuar.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2: Pagamento -->
+      <div class="checkout-card">
+        <div class="checkout-card-header">
+          <span class="checkout-step-num">2</span>
+          <h2 class="checkout-card-title">Forma de pagamento</h2>
+        </div>
+        <div class="checkout-card-body">
+          <div class="pay-tabs">
+            <div class="pay-tab ativo" id="tab-pix" onclick="selecionarPagamento('pix')">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <path d="M11 2l2.8 2.8L17 4l-.8 3.2L19 9l-2.8 2L17 14l-3.2-.8L11 16l-2.8-2.8L5 14l.8-3.2L3 9l2.8-2L5 4l3.2.8L11 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              PIX
+              <span class="pay-tab-rec">Recomendado</span>
+            </div>
+            <div class="pay-tab" id="tab-boleto" onclick="selecionarPagamento('bank_slip')">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <rect x="2" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 9v4M7 9v4M10 9v4M12 9v4M14 9v4M17 9v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              Boleto
+            </div>
+            <div class="pay-tab" id="tab-cartao" onclick="selecionarPagamento('credit_card')">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                <rect x="2" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 9h18" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 13h4M14 13h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              Cartão
+            </div>
+          </div>
+
+          <!-- Formulário de cartão (condicional) -->
+          <div id="secao-cartao" style="display:none">
+            <div class="form-sec-label" style="margin-bottom:14px;display:block;">Dados do cartão</div>
+            <div class="card-form-grid">
+              <div class="card-form-full card-number-wrap">
+                <label class="form-label" for="card-numero">Número do cartão</label>
+                <input class="form-input" type="text" id="card-numero" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="cc-number">
+              </div>
+              <div class="card-form-full">
+                <label class="form-label" for="card-titular">Nome no cartão</label>
+                <input class="form-input" type="text" id="card-titular" placeholder="NOME COMO NO CARTÃO" autocomplete="cc-name" style="text-transform:uppercase">
+              </div>
+              <div>
+                <label class="form-label" for="card-mes">Mês</label>
+                <input class="form-input" type="text" id="card-mes" placeholder="MM" maxlength="2" inputmode="numeric" autocomplete="cc-exp-month">
+              </div>
+              <div>
+                <label class="form-label" for="card-ano">Ano</label>
+                <input class="form-input" type="text" id="card-ano" placeholder="AA" maxlength="2" inputmode="numeric" autocomplete="cc-exp-year">
+              </div>
+              <div>
+                <label class="form-label" for="card-cvv">CVV</label>
+                <input class="form-input" type="text" id="card-cvv" placeholder="000" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+              </div>
+              <div>
+                <label class="form-label" for="card-parcelas">Parcelas</label>
+                <select class="parcelas-select" id="card-parcelas" onchange="atualizarParcelasInfo()">
+                  <option value="1">1x sem juros</option>
+                  <option value="2">2x sem juros</option>
+                  <option value="3">3x sem juros</option>
+                  <option value="6">6x</option>
+                  <option value="12">12x</option>
+                </select>
+                <p class="parcelas-info" id="parcelas-info"></p>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:.78rem;color:#888;font-family:var(--f-body);margin-top:14px;">
+            <span id="descricao-pagamento">Você verá o QR code do PIX após confirmar o pedido. Aprovação imediata.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 3: Dados pessoais -->
+      <div class="checkout-card">
+        <div class="checkout-card-header">
+          <span class="checkout-step-num">3</span>
+          <h2 class="checkout-card-title">Seus dados</h2>
+        </div>
+        <div class="checkout-card-body">
+          <span class="form-sec-label">Dados pessoais</span>
+          <div class="form-grid" style="margin-bottom:24px;">
+            <div class="form-full">
+              <label class="form-label" for="nome">Nome completo</label>
+              <input class="form-input" type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+            </div>
+            <div>
+              <label class="form-label" for="cpf">CPF</label>
+              <input class="form-input" type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" autocomplete="off">
+            </div>
+            <div>
+              <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+              <input class="form-input" type="tel" id="telefone" placeholder="(00) 00000-0000" autocomplete="tel">
+            </div>
+            <div class="form-full">
+              <label class="form-label" for="email">E-mail</label>
+              <input class="form-input" type="email" id="email" placeholder="seu@email.com" autocomplete="email">
+            </div>
+          </div>
+
+          <span class="form-sec-label">Endereço de entrega</span>
+          <div class="form-grid">
+            <div>
+              <label class="form-label" for="cep">CEP</label>
+              <input class="form-input" type="text" id="cep" placeholder="00000-000" maxlength="9" inputmode="numeric">
+            </div>
+            <div class="form-full">
+              <label class="form-label" for="endereco">Endereço</label>
+              <input class="form-input" type="text" id="endereco" placeholder="Rua, Avenida..." autocomplete="street-address">
+            </div>
+            <div>
+              <label class="form-label" for="numero">Número</label>
+              <input class="form-input" type="text" id="numero" placeholder="123">
+            </div>
+            <div>
+              <label class="form-label" for="complemento">Complemento <span class="form-opt">(opcional)</span></label>
+              <input class="form-input" type="text" id="complemento" placeholder="Apto, bloco...">
+            </div>
+            <div>
+              <label class="form-label" for="bairro">Bairro</label>
+              <input class="form-input" type="text" id="bairro" placeholder="Seu bairro">
+            </div>
+            <div>
+              <label class="form-label" for="cidade">Cidade</label>
+              <input class="form-input" type="text" id="cidade" placeholder="Sua cidade" autocomplete="address-level2">
+            </div>
+            <div>
+              <label class="form-label" for="estado">Estado</label>
+              <input class="form-input" type="text" id="estado" placeholder="UF" maxlength="2" id="estado-input" autocomplete="address-level1">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTÃO MOBILE -->
+      <div id="mobile-confirmar" style="padding:0 0 8px;">
+        <button class="btn-confirm" id="btn-confirmar-mob" type="button" onclick="confirmarPedido()">
+          Finalizar compra com segurança
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="security-row">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+            <path d="M6.5 1L2 3.5v3.2C2 9 3.9 11.3 6.5 12 9.1 11.3 11 9 11 6.7V3.5L6.5 1z" fill="rgba(26,122,74,.15)" stroke="var(--c-brand)" stroke-width="1"/>
+            <path d="M4.5 6.5l1.5 1.5 2.5-2.5" stroke="var(--c-brand)" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          Ambiente seguro • Dados criptografados • Garantia de 30 dias
+        </div>
+        <p style="font-size:.78rem;color:#aaa;font-family:var(--f-body);text-align:center;margin-top:8px;">
+          Ao confirmar você concorda com a Política de Privacidade.
+        </p>
+      </div>
+    </div>
+
+    <!-- COLUNA DIREITA — RESUMO -->
+    <aside>
+      <div class="checkout-summary" id="resumo-lateral">
+        <div class="checkout-summary-product">
+          <img src="/imagens/frasco-2.png" alt="Kit AmericanFit" id="resumo-img">
+        </div>
+        <div class="checkout-summary-body">
+          <p class="checkout-summary-label">Resumo do pedido</p>
+
+          <div class="checkout-sum-row">
+            <span>Kit selecionado</span>
+            <strong id="resumo-kit-nome">Kit Recomendado — 3 Frascos</strong>
+          </div>
+          <div class="checkout-sum-row">
+            <span>Frete</span>
+            <strong style="color:var(--c-brand)">Grátis</strong>
+          </div>
+          <hr class="checkout-sum-divider">
+          <div class="checkout-sum-total">
+            <span>Total</span>
+            <span class="checkout-sum-total-val" id="resumo-valor">R$ 247,00</span>
+          </div>
+          <div class="checkout-sum-row" style="margin-top:8px;">
+            <span>Pagamento</span>
+            <strong id="resumo-pagamento">PIX</strong>
+          </div>
+
+          <button class="btn-confirm" style="width:100%;margin-top:20px;font-size:.92rem;padding:15px 20px;"
+                  type="button" id="btn-confirmar-desk" onclick="confirmarPedido()">
+            Finalizar compra
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="security-row" style="margin-top:12px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+              <path d="M6.5 1L2 3.5v3.2C2 9 3.9 11.3 6.5 12 9.1 11.3 11 9 11 6.7V3.5L6.5 1z" fill="rgba(26,122,74,.15)" stroke="var(--c-brand)" stroke-width="1"/>
+              <path d="M4.5 6.5l1.5 1.5 2.5-2.5" stroke="var(--c-brand)" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+            Compra segura e criptografada
+          </div>
+
+          <ul class="checkout-trust-list" style="margin-top:16px;">
+            <li class="checkout-trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Garantia de 30 dias
+            </li>
+            <li class="checkout-trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Envio rastreado pelo WhatsApp
+            </li>
+            <li class="checkout-trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Produto original e lacrado
+            </li>
+            <li class="checkout-trust-item">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              Aprovado pela ANVISA
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- ── TELA DE RESULTADO ──────────────────────────────── -->
+<main class="checkout-page" id="tela-resultado" style="display:none;">
+  <div style="max-width:540px; margin:0 auto;">
+
+    <!-- PIX -->
+    <div id="resultado-pix" style="display:none;">
+      <div class="checkout-success">
+        <div class="checkout-success-icon" style="background:rgba(26,122,74,.1);">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="12" stroke="#1A7A4A" stroke-width="1.5"/>
+            <path d="M9 14l3.5 3.5 6.5-7" stroke="#1A7A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="checkout-success-title">Pedido criado! Aguardando PIX</h2>
+        <p class="checkout-success-sub">Escaneie o QR code ou copie o código para pagar. O pedido é confirmado automaticamente após o pagamento.</p>
+        <div class="checkout-success-badge" id="badge-order">Pedido</div>
+      </div>
+
+      <div class="pix-box" style="margin-top:24px;">
+        <img id="pix-qr-img" src="" alt="QR Code PIX" class="pix-qr">
+        <p class="pix-label">Ou copie o código PIX (Pix Copia e Cola):</p>
+        <div class="pix-code-wrap">
+          <span class="pix-code" id="pix-code-text">—</span>
+          <button class="btn-pix-copy" onclick="copiarPix()">Copiar</button>
+        </div>
+        <p class="pix-timer">⏱ Este código expira em <strong id="pix-timer-text">30 minutos</strong></p>
+      </div>
+
+      <div style="margin-top:24px; text-align:center;">
+        <a id="wpp-pix" href="https://wa.me/5546999718672" class="btn-whatsapp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;">
+          <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="currentColor"/></svg>
+          Confirmar pagamento pelo WhatsApp
+        </a>
+        <p style="font-size:.78rem;color:#888;font-family:var(--f-body);margin-top:10px;">
+          Após pagar, envie print para nosso WhatsApp para agilizar o envio.
+        </p>
+      </div>
+    </div>
+
+    <!-- BOLETO -->
+    <div id="resultado-boleto" style="display:none;">
+      <div class="checkout-success">
+        <div class="checkout-success-icon" style="background:rgba(217,119,6,.1);">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="12" stroke="#D97706" stroke-width="1.5"/>
+            <path d="M9 14l3.5 3.5 6.5-7" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="checkout-success-title">Boleto gerado com sucesso!</h2>
+        <p class="checkout-success-sub">Imprima ou pague pelo app do banco. O pedido é confirmado após a compensação do boleto (até 3 dias úteis).</p>
+        <div class="checkout-success-badge" id="badge-order-boleto" style="background:rgba(217,119,6,.1);color:#D97706;border-color:rgba(217,119,6,.3);">Pedido</div>
+      </div>
+
+      <div class="boleto-box" style="margin-top:24px;">
+        <div class="boleto-icon">
+          <svg width="24" height="24" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <rect x="2" y="5" width="18" height="12" rx="2" stroke="#D97706" stroke-width="1.5"/>
+            <path d="M5 9v4M7 9v4M10 9v4M12 9v4M14 9v4M17 9v4" stroke="#D97706" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="boleto-title">Seu boleto está pronto</p>
+        <p class="boleto-sub">Clique no botão abaixo para abrir e imprimir, ou pague pelo internet banking ou app do seu banco.</p>
+        <a id="boleto-link" href="#" class="btn-boleto" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Abrir boleto bancário
+        </a>
+        <p class="boleto-warning">Boleto com vencimento em 3 dias úteis. Após o pagamento, seu pedido será enviado em até 2 dias úteis.</p>
+      </div>
+
+      <div style="margin-top:24px; text-align:center;">
+        <a id="wpp-boleto" href="https://wa.me/5546999718672" class="btn-whatsapp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;">
+          <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="currentColor"/></svg>
+          Confirmar boleto pelo WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- CARTÃO -->
+    <div id="resultado-cartao" style="display:none;">
+      <div class="card-success-box">
+        <div class="card-success-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="12" stroke="#1A7A4A" stroke-width="1.5"/>
+            <path d="M9 14l3.5 3.5 6.5-7" stroke="#1A7A4A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="checkout-success-title" style="margin-bottom:8px;">Pagamento aprovado!</h2>
+        <p class="checkout-success-sub">Sua compra foi aprovada. Em breve você receberá o código de rastreio pelo WhatsApp.</p>
+        <div class="checkout-success-badge" id="badge-order-cartao">Pedido</div>
+      </div>
+
+      <div style="margin-top:24px; text-align:center;">
+        <a id="wpp-cartao" href="https://wa.me/5546999718672" class="btn-whatsapp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 28px;">
+          <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 1.5C5.75 1.5 1.5 5.75 1.5 11c0 1.65.44 3.2 1.2 4.55L1.5 20.5l5.1-1.18A9.4 9.4 0 0 0 11 20.5c5.25 0 9.5-4.25 9.5-9.5S16.25 1.5 11 1.5z" fill="currentColor"/></svg>
+          Acompanhar pedido pelo WhatsApp
+        </a>
+        <p style="font-size:.78rem;color:#888;font-family:var(--f-body);margin-top:10px;">
+          Enviaremos o código de rastreio assim que o pedido for despachado.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── TOAST ──────────────────────────────────────────── -->
+<div class="online-toast-wrap" id="toast-container"></div>
+
+<!-- ── SCRIPTS ────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* === PARAMS === */
+  const params  = new URLSearchParams(location.search);
+  const kitParam = params.get('kit')    || '3meses';
+  const estadoParam = params.get('estado') || '';
+
+  if (!kitParam) {
+    location.href = '/';
+    return;
+  }
+
+  /* === ESTADO === */
+  if (estadoParam) {
+    const stripe = document.getElementById('estado-stripe');
+    const nomeEl = document.getElementById('estado-nome');
+    nomeEl.textContent = estadoParam;
+    stripe.style.display = 'flex';
+    document.getElementById('estado').value = estadoParam;
+  }
+
+  /* === KITS === */
+  const KITS = {
+    '1mes':   { nome: 'Kit Inicial — 1 Frasco',           valor: 97,  img: '/imagens/imagem-pote.png' },
+    '3meses': { nome: 'Kit Recomendado — 3 Frascos',      valor: 247, img: '/imagens/frasco-2.png' },
+    '5meses': { nome: 'Melhor Custo-Benefício — 5 Frascos', valor: 397, img: '/imagens/frasco-3.png' },
+  };
+  let kitAtivo = kitParam;
+  let pagamentoAtivo = 'pix';
+
+  function selecionarKit(kit) {
+    kitAtivo = kit;
+    ['1mes', '3meses', '5meses'].forEach(k => {
+      document.getElementById('opt-' + k).classList.remove('selecionado');
+    });
+    document.getElementById('opt-' + kit).classList.add('selecionado');
+    document.getElementById('kit-erro').style.display = 'none';
+    const info = KITS[kit];
+    document.getElementById('resumo-kit-nome').textContent = info.nome;
+    document.getElementById('resumo-valor').textContent    = 'R$ ' + info.valor.toLocaleString('pt-BR') + ',00';
+    document.getElementById('resumo-img').src = info.img;
+    atualizarParcelasInfo();
+  }
+  window.selecionarKit = selecionarKit;
+  selecionarKit(kitAtivo);
+
+  /* === PAGAMENTO === */
+  const descricoes = {
+    pix:         'Você verá o QR code do PIX após confirmar o pedido. Aprovação imediata.',
+    bank_slip:   'O boleto bancário será gerado após confirmar. Vencimento em 3 dias úteis.',
+    credit_card: 'Preencha os dados do cartão abaixo. Parcelamento disponível.',
+  };
+  const nomesPagamento = {
+    pix: 'PIX', bank_slip: 'Boleto', credit_card: 'Cartão de Crédito',
+  };
+
+  function selecionarPagamento(metodo) {
+    pagamentoAtivo = metodo;
+    ['pix', 'bank_slip', 'credit_card'].forEach(m => {
+      const tabId = m === 'bank_slip' ? 'tab-boleto' : m === 'credit_card' ? 'tab-cartao' : 'tab-pix';
+      document.getElementById(tabId).classList.remove('ativo');
+    });
+    const idMap = { pix: 'tab-pix', bank_slip: 'tab-boleto', credit_card: 'tab-cartao' };
+    document.getElementById(idMap[metodo]).classList.add('ativo');
+    document.getElementById('secao-cartao').style.display = metodo === 'credit_card' ? 'block' : 'none';
+    document.getElementById('descricao-pagamento').textContent = descricoes[metodo];
+    document.getElementById('resumo-pagamento').textContent = nomesPagamento[metodo];
+  }
+  window.selecionarPagamento = selecionarPagamento;
+
+  /* === PARCELAS INFO === */
+  function atualizarParcelasInfo() {
+    const select = document.getElementById('card-parcelas');
+    const n = parseInt(select.value);
+    const total = KITS[kitAtivo]?.valor || 0;
+    const el = document.getElementById('parcelas-info');
+    if (n === 1) { el.textContent = 'Total: R$ ' + total.toLocaleString('pt-BR') + ',00 à vista'; }
+    else {
+      const juros = n <= 3 ? 0 : 0.0199;
+      const valorFinal = total * Math.pow(1 + juros, n);
+      const parcela = valorFinal / n;
+      const label = juros === 0 ? 'sem juros' : 'com juros';
+      el.textContent = `${n}x de R$ ${parcela.toFixed(2).replace('.', ',')} ${label}`;
+    }
+  }
+  window.atualizarParcelasInfo = atualizarParcelasInfo;
+  atualizarParcelasInfo();
+
+  /* === MÁSCARAS === */
+  const cpfInput = document.getElementById('cpf');
+  cpfInput.addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 9)      v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+    else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
+    else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/, '$1.$2');
+    this.value = v;
+  });
+
+  const telInput = document.getElementById('telefone');
+  telInput.addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length <= 10) v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    else                v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    this.value = v;
+  });
+
+  const cepInput = document.getElementById('cep');
+  cepInput.addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').slice(0, 8);
+    if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5);
+    this.value = v;
+  });
+
+  const cardNumInput = document.getElementById('card-numero');
+  cardNumInput.addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '').slice(0, 16);
+    v = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+    this.value = v;
+  });
+
+  const cardMesInput = document.getElementById('card-mes');
+  cardMesInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 2);
+  });
+
+  const cardAnoInput = document.getElementById('card-ano');
+  cardAnoInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 2);
+  });
+
+  /* === TOAST === */
+  function mostrarToast(msg, tipo) {
+    const container = document.getElementById('toast-container');
+    const el = document.createElement('div');
+    el.className = 'online-toast toast-' + (tipo || 'info');
+    el.textContent = msg;
+    container.appendChild(el);
+    setTimeout(() => {
+      el.classList.add('saindo');
+      setTimeout(() => el.remove(), 400);
+    }, 3500);
+  }
+
+  /* === VALIDAÇÃO === */
+  function marcarErro(id, marcar) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('campo-erro', marcar);
+  }
+
+  function validar() {
+    if (!kitAtivo) {
+      document.getElementById('kit-erro').style.display = 'block';
+      document.getElementById('opt-1mes').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    const campos = [
+      { id: 'nome',      val: () => document.getElementById('nome').value.trim() },
+      { id: 'cpf',       val: () => document.getElementById('cpf').value.replace(/\D/g,'') },
+      { id: 'telefone',  val: () => document.getElementById('telefone').value.replace(/\D/g,'') },
+      { id: 'email',     val: () => document.getElementById('email').value.trim() },
+      { id: 'cep',       val: () => document.getElementById('cep').value.replace(/\D/g,'') },
+      { id: 'endereco',  val: () => document.getElementById('endereco').value.trim() },
+      { id: 'numero',    val: () => document.getElementById('numero').value.trim() },
+      { id: 'bairro',    val: () => document.getElementById('bairro').value.trim() },
+      { id: 'cidade',    val: () => document.getElementById('cidade').value.trim() },
+      { id: 'estado',    val: () => document.getElementById('estado').value.trim() },
+    ];
+
+    let erro = false;
+    campos.forEach(c => {
+      const v = c.val();
+      const invalido = !v || (c.id === 'cpf' && v.length !== 11) || (c.id === 'cep' && v.length !== 8);
+      marcarErro(c.id, invalido);
+      if (invalido) erro = true;
+    });
+
+    if (pagamentoAtivo === 'credit_card') {
+      const cardCampos = [
+        { id: 'card-numero',  val: () => document.getElementById('card-numero').value.replace(/\D/g,'') },
+        { id: 'card-titular', val: () => document.getElementById('card-titular').value.trim() },
+        { id: 'card-mes',     val: () => document.getElementById('card-mes').value },
+        { id: 'card-ano',     val: () => document.getElementById('card-ano').value },
+        { id: 'card-cvv',     val: () => document.getElementById('card-cvv').value },
+      ];
+      cardCampos.forEach(c => {
+        const v = c.val();
+        const invalido = !v || (c.id === 'card-numero' && v.length < 13);
+        marcarErro(c.id, invalido);
+        if (invalido) erro = true;
+      });
+    }
+
+    if (erro) {
+      const primeiroErro = document.querySelector('.campo-erro');
+      if (primeiroErro) primeiroErro.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      mostrarToast('Preencha todos os campos obrigatórios.', 'erro');
+    }
+    return !erro;
+  }
+
+  /* === CONFIRMAR PEDIDO === */
+  async function confirmarPedido() {
+    if (!validar()) return;
+
+    const g = id => document.getElementById(id);
+    const payload = {
+      kit:      kitAtivo,
+      pagamento: pagamentoAtivo,
+      cliente: {
+        nome:      g('nome').value.trim(),
+        cpf:       g('cpf').value,
+        email:     g('email').value.trim(),
+        telefone:  g('telefone').value,
+        cep:       g('cep').value,
+        endereco:  g('endereco').value.trim(),
+        numero:    g('numero').value.trim(),
+        complemento: g('complemento').value.trim(),
+        bairro:    g('bairro').value.trim(),
+        cidade:    g('cidade').value.trim(),
+        estado:    g('estado').value.trim().toUpperCase().slice(0,2),
+      },
+    };
+
+    if (pagamentoAtivo === 'credit_card') {
+      payload.cartao = {
+        numero:   g('card-numero').value,
+        titular:  g('card-titular').value.trim(),
+        mes:      g('card-mes').value,
+        ano:      g('card-ano').value,
+        cvv:      g('card-cvv').value,
+        parcelas: parseInt(g('card-parcelas').value) || 1,
+      };
+    }
+
+    const btnDesk = g('btn-confirmar-desk');
+    const btnMob  = g('btn-confirmar-mob');
+    const loadingHTML = `<svg style="animation:spin360 .6s linear infinite" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><path d="M9 2a7 7 0 0 1 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg> Processando...`;
+    btnDesk.disabled = true; btnDesk.innerHTML = loadingHTML;
+    btnMob.disabled  = true; btnMob.innerHTML  = loadingHTML;
+
+    const resetBtns = () => {
+      const html = `Finalizar compra <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      btnDesk.disabled = false; btnDesk.innerHTML = html;
+      btnMob.disabled  = false; btnMob.innerHTML  = html;
+    };
+
+    try {
+      const resp = await fetch('/api/coinzz/venda', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await resp.json();
+
+      if (!resp.ok || !data.sucesso) {
+        resetBtns();
+        mostrarToast(data.erro || 'Erro ao processar pagamento. Tente novamente.', 'erro');
+        return;
+      }
+
+      const venda = data.venda;
+      const orderHash = venda.order_hash || '';
+      const wppMsg = encodeURIComponent(
+        `Olá! Finalizei minha compra do AmericanFit online. Pedido: ${orderHash}. Aguardo confirmação! 🛍️`
+      );
+      const wppUrl = `https://wa.me/5546999718672?text=${wppMsg}`;
+
+      if (pagamentoAtivo === 'pix') {
+        const qrImg  = venda.pix?.qr_code || '';
+        const qrText = venda.pix?.code    || '';
+        g('pix-qr-img').src      = qrImg;
+        g('pix-qr-img').style.display = qrImg ? 'block' : 'none';
+        g('pix-code-text').textContent = qrText || 'Código não disponível';
+        g('badge-order').textContent   = orderHash ? `Pedido ${orderHash}` : 'Pedido confirmado';
+        g('wpp-pix').href = wppUrl;
+        mostrarResultado('pix');
+
+      } else if (pagamentoAtivo === 'bank_slip') {
+        const slipUrl = venda.bank_slip?.url || '#';
+        g('boleto-link').href   = slipUrl;
+        g('badge-order-boleto').textContent = orderHash ? `Pedido ${orderHash}` : 'Boleto gerado';
+        g('wpp-boleto').href = wppUrl;
+        mostrarResultado('boleto');
+
+      } else {
+        g('badge-order-cartao').textContent = orderHash ? `Pedido ${orderHash}` : 'Pagamento aprovado';
+        g('wpp-cartao').href = wppUrl;
+        mostrarResultado('cartao');
+      }
+
+    } catch (err) {
+      resetBtns();
+      mostrarToast('Erro de conexão. Verifique sua internet e tente novamente.', 'erro');
+    }
+  }
+  window.confirmarPedido = confirmarPedido;
+
+  function mostrarResultado(tipo) {
+    document.getElementById('tela-checkout').style.display  = 'none';
+    document.getElementById('tela-resultado').style.display = 'block';
+    ['pix', 'boleto', 'cartao'].forEach(t => {
+      document.getElementById('resultado-' + t).style.display = t === tipo ? 'block' : 'none';
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* === COPIAR PIX === */
+  function copiarPix() {
+    const code = document.getElementById('pix-code-text').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      mostrarToast('Código PIX copiado!', 'ok');
+    }).catch(() => {
+      mostrarToast('Não foi possível copiar automaticamente.', 'info');
+    });
+  }
+  window.copiarPix = copiarPix;
+
+})();
+</script>
+</body>
+</html>
