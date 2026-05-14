@@ -3,6 +3,7 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const { inicializar } = require('./database');
 const rotasCidades = require('./routes/cidades');
@@ -61,6 +62,9 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: false, limit: '10kb' }));
 app.use(cookieParser());
 
+// ── Arquivos estáticos ────────────────────────────────────────────────────────
+app.use(express.static(path.join(__dirname, 'public')));
+
 // ── Inicialização do banco apenas para rotas de API ───────────────────────────
 app.use('/api', async (req, res, next) => {
   try {
@@ -84,6 +88,7 @@ app.get('/api/status', (req, res) => {
 
 // ── 404 ────────────────────────────────────────────────────────────────────────
 app.use((req, res) => {
+  if (req.accepts('html')) return res.sendFile(path.join(__dirname, 'public', 'index.html'));
   res.status(404).json({ erro: 'Rota não encontrada.' });
 });
 
