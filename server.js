@@ -31,11 +31,11 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc:     ["'self'"],
-      scriptSrc:      ["'self'", "'unsafe-inline'"],
+      scriptSrc:      ["'self'", "'unsafe-inline'", 'https://connect.facebook.net'],
       scriptSrcAttr:  ["'unsafe-inline'"],
       styleSrc:       ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-      imgSrc:         ["'self'", 'data:', 'blob:'],
-      connectSrc:     ["'self'"],
+      imgSrc:         ["'self'", 'data:', 'blob:', 'https://www.facebook.com'],
+      connectSrc:     ["'self'", 'https://www.facebook.com', 'https://connect.facebook.net'],
       fontSrc:        ["'self'", 'https://fonts.gstatic.com'],
       objectSrc:      ["'none'"],
       frameAncestors: ["'none'"],
